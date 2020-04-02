@@ -1,0 +1,45 @@
+.ui.form .field .ui.input input, .ui.form .fields .field .ui.input input{
+    border: none;
+    background-color: rgb(243, 243, 243);
+}
+
+.ui.form.input>input:focus{
+    background-color: rgb(243, 243, 243);
+}
+
+.ui.input>input::placeholder{
+    color: #585858;
+}
+
+.ui.icon.input>i.icon{
+    color: rgb(48, 122, 86);
+    opacity: 1;
+    font-size: 1.2rem;
+}
+
+.ui.icon.input>input:focus~i.icon{
+    color: #916e49;
+    opacity: 1;
+    font-size: 1.2rem;
+}
+
+.ui.search>.results{
+    flex: auto;
+    left:auto !important;
+    right: auto !important;
+    border: none;
+    border-radius: 16px;
+}
+
+.ui.search>.results .result{
+    border-radius: 15px;
+    border: none;
+}
+
+.ui.search>.results .result:hover{
+    background-color: rgba(21, 117, 30, 0.2);
+}
+
+.ui.icon.input>input{
+    border-radius: 30px !important;
+}

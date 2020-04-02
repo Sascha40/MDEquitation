@@ -1,0 +1,39 @@
+.nav-height{
+    min-height: 90px !important;
+    max-height: 90px !important;
+}
+
+
+.ui.secondary.menu .item{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+
+}
+
+.nav-items{
+    font-size: 1.15rem;
+    color: #7d7d7d;
+}
+
+.nav-header{
+    font-size: 1.4rem !important;
+}
+
+.capital-color{
+    color: rgb(0, 94, 47);
+    margin-left: 4px;
+}
+
+.minimal-color{
+    color: rgb(48, 48, 48);
+}
+
+.minimal-color:hover{
+    color: rgb(0, 0, 0);
+}
+.nav-logo{
+    margin-left: 25px;
+    margin-top: auto;
+    margin-bottom :auto;
+}
+

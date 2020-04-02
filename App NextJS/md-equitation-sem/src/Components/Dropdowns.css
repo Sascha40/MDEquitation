@@ -1,0 +1,65 @@
+.ui.dropdown{
+    background-color: rgb(243, 243, 243);
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.ui.dropdown:focus{
+    background-color: rgb(243, 243, 243);
+    border-radius: 20px;
+    color: rgba(0,0,0,.6);
+}
+
+.ui.dropdown:active{
+    background-color: rgb(243, 243, 243);
+    border-radius: 20px;
+    color: rgba(0,0,0,.6);
+}
+
+.ui.dropdown:hover{
+    background-color: rgb(243, 243, 243);
+    border-radius: 20px;
+    color: rgba(0,0,0,.6);
+}
+
+.ui.active.button:hover{
+    background-color: rgb(243, 243, 243);
+    border-radius: 20px;
+}
+
+.ui.dropdown .menu  {
+    border-radius: 16px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+
+}
+
+.ui.dropdown .menu::-webkit-scrollbar-track-piece {
+    margin: 13px !important;
+}
+
+.ui.dropdown .menu::-webkit-scrollbar-track {
+    border-radius: 40px;
+    background-color: transparent;
+}
+
+.ui.dropdown .menu::-webkit-scrollbar-thumb {
+    background: rgba(21, 117, 30, 0.2);
+    border-radius: 20px;
+}
+
+.ui.dropdown .menu::-webkit-scrollbar {
+    width: 7px !important;
+}
+
+.ui.menu .ui.dropdown .menu>.selected.item{
+    margin: 4px;
+}
+
+.ui.menu .ui.dropdown .menu> .item{
+    margin: 4px;
+}
+
+.ui.simple.active.dropdown, .ui.simple.dropdown:hover{
+    border-radius: 20px !important;
+}
