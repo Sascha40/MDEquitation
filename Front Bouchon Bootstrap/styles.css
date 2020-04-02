@@ -1,0 +1,441 @@
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 0.700rem;
+  }
+
+  .h-input{
+    height: 35px !important;
+  }
+
+}
+
+html{
+  height: 100%;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.875rem;
+}
+
+a {
+  color: rgb(48, 122, 86);
+}
+
+a:hover {
+  color: rgb(0, 135, 79);
+}
+
+h1 {
+  font-weight: 600;
+}
+
+/*
+ * Font size
+ */
+
+.ft-2rem{
+  font-size: 2rem;
+}
+
+.ft-1dot5rem{
+  font-size: 1.5rem;
+}
+.ft-1rem{
+  font-size: 1rem;
+}
+
+.ft-0875rem{
+  font-size: 0.875rem;
+}
+
+.ft-0775rem{
+  font-size: 0.775rem;
+}
+
+
+
+/*
+ * Colors
+ */
+
+.bg-main{
+  background-color: rgb(244, 247, 249);
+}
+
+.btn-green{
+  background-color: rgb(48, 122, 86);
+  color: white;
+  max-height: 40px;
+}
+.btn-green:hover{
+  background-color: rgb(0, 135, 79);
+  color: white;
+}
+.btn-green:focus {
+  border-color: transparent;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.btn-brown{
+  background-color: #916e49;
+  color: white;
+}
+
+.btn-brown:hover{
+  background-color: #b78d61;
+  color: white;
+}
+
+.btn-brown:focus {
+  border-color: transparent;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.btn:focus {
+  border-color: transparent;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.nav-link:hover{
+  color: rgb(0, 135, 79) !important;
+}
+
+.bg-green{
+  background-color: rgb(48, 122, 86);
+}
+
+.fa-search-color{
+  color: #fff;
+}
+
+.fa-search-color:hover{
+  color: #a07d53;
+}
+
+.txt-shadow{
+  text-shadow: 0px 4px 10px rgba(64, 64, 64, 0.59);
+}
+
+.brown-color{
+  color: #916e49;
+}
+
+.dark-green-color{
+  color: rgb(0, 94, 47);
+}
+
+.green-color{
+  color: rgb(48, 122, 86);
+}
+
+.red-color{
+  color: #b04d4a;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 90px 0 0;
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 90px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.sidebar-not-sticky {
+  top: 0;
+  height: calc(100vh - 90px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link:hover {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: rgb(48, 122, 86);
+}
+
+.sidebar .nav-link.active {
+  color: rgb(48, 122, 86);
+}
+
+.sidebar-not-sticky .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar-not-sticky .nav-link:hover {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar-not-sticky .nav-link .feather {
+  margin-right: 4px;
+  color: rgb(48, 122, 86);
+}
+
+.sidebar-not-sticky .nav-link.active {
+  color: rgb(48, 122, 86);
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/*
+ * Padding Content
+ */
+
+.padding-main-desktop {
+  padding-top: 90px;
+}
+.padding-main-mobile {
+  padding-top: 100px;
+}
+
+/*
+ * Navbar
+ */
+
+.nav-config{
+  min-height: 90px!important;
+  font-size: 0.875rem;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-weight: 600;
+}
+
+.input-group-append{
+  width: 360px !important;
+  max-width: 360px;
+}
+
+.form-control-light{
+  width: 360px !important;
+  max-width: 360px;
+  font-size: 0.875rem;
+}
+
+.form-control-light:focus {
+  border-color: transparent;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.has-search .form-control {
+  padding-left: 1rem;
+}
+
+.cat-config{
+  width: 13vw !important;
+  max-width: 180px;
+}
+
+
+.h-input{
+  height: 43px;
+}
+
+.cart-config{
+  font-size: 0.875rem;
+  color: white;
+}
+
+.bg-cart{
+  background-color: rgba(244, 247, 249,0.8);
+}
+
+.dropdown-item:focus{
+  background-color:  rgb(48, 122, 86);
+}
+
+@media screen and (min-width: 768px) {
+  .dropdown:hover .dropdown-menu, .btn-group:hover .dropdown-menu{
+		display: block;
+	}
+	.dropdown-menu{
+		margin-top: 0;
+	}
+	.dropdown-toggle{
+		margin-bottom: 2px;
+	}
+	.navbar .dropdown-toggle, .nav-tabs .dropdown-toggle{
+		margin-bottom: 0;
+	}
+}
+
+/*
+ * Carousel
+*/
+
+.carousel {
+  position: relative;
+}
+
+.carousel-inner {
+  background-color: transparent;
+}
+
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+.carousel-item {
+  height: 370px;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 370px;
+  object-fit: contain;
+}
+
+.carousel-control {
+    background-image:none !important;
+    filter:none !important;
+}
+
+.carousel-arrows:before{
+  color: rgb(48, 122, 86);
+}
+
+.carousel-arrows{
+  font-size: 3em;
+  color: rgb(48, 122, 86);
+  opacity: 0.5;
+}
+.carousel-indicators .active{
+    background-color: #307a56;
+}
+.carousel-indicators li {
+    background-color: #8fb794;
+}
+
+/*
+ * Search View Cards & Images Sizes
+ */
+
+.search-card-size{
+  max-width: 250px;
+  min-width: 250px;
+  width: 250px !important;
+  max-height: 300px;
+  min-height: 290px;
+  height: 300px !important;
+}
+
+/* Login */
+.body-login {
+  width: 100%;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Dashboard */
+
+.dashboard-img-config {
+  max-width: 180px;
+  max-height: 180px;
+  min-width: 180px;
+  min-height: 180px;
+}
+
+/* Badge color */
+
+
+.badge-orange{
+  background-color: #b28d21;
+  color: white;
+}
+
+.badge-green{
+  background-color: rgb(48, 122, 86);
+  color: white;
+}

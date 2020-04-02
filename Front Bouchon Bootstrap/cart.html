@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDEquitation - Mon Panier</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- NavBar -->
+    <nav class="navbar navbar-light navbar-expand-md d-flex justify-content-end nav-config bg-main p-0">
+        <button class="navbar-toggler border-0 mr-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars brown-color ft-1dot5rem"></i>
+        </button>
+
+        <h1 class="h1 mr-auto">
+            <a class="navbar-brand mr-auto ml-3 text-dark" href="#">
+                <img src="assets/horse.png" width="30" height="30" class="d-inline-block m-auto" alt="">
+                    <span class="dark-green-color">MD</span>Equitation
+            </a>
+        </h1>
+
+         <div class="card shadow-none border-0 bg-main mr-1 d-xs-block d-sm-block d-md-none">
+                <img src="assets/cart.png" width="40" height="40" alt="Card image" >
+                <div class="card-img-overlay py-0 px-0">
+                    <a class="text-dark" id="navbarDropdownMenuCart" href="#"> <span class="badge bg-cart mt-2 ml-3">5</span></a>
+                </div>
+        </div>
+
+        <button class="btn rounded-pill mr-1 ft-1dot5rem btn-inverse navbar-btn d-xs-block d-md-none" data-toggle="collapse" data-target="#nav2"><i class=" fa green-color fa-search" aria-hidden="true"></i></button>
+        <div class="collapse m-auto d-xs-block d-md-none" id="nav2">
+            <form class="navbar-form" role="search" id="srch-frm">
+                <div class="input-group">
+                    <input class="form-control ft-0775rem mb-3 rounded-pill h-input border-0 shadow-sm typeahead" placeholder="Rechercher..." name="pn" id="srch-term" type="text">
+                </div>
+            </form>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+            <form class="form-inline mx-auto">
+                    <select class="d-none d-lg-block custom-select border-0 rounded-pill shadow-sm cat-config ft-0775rem" id="inputGroupSelect01">
+                        <option>Toutes les catégories</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+
+                    <div class="form-group has-search d-none d-md-block">
+                        <div class="input-group-append shadow-sm rounded-pill bg-green ml-2">
+                        <input class="form-control form-control-light h-input rounded-pill border-0 shadow-sm" type="text" placeholder="Rechercher..." aria-label="Search">
+                                <button class="btn border-0 fa-search-color" type="button">
+                                <i class="fa fa-search "></i>
+                                </button>
+                        </div>
+                    </div>
+            </form>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item d-none d-md-block dropdown mr-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mon Compte
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right border-0 shadow-lg ft-0875rem" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#"><i class="fa fa-sign-out" style="width: 25px"></i>Déconnexion</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-shopping-bag" style="width: 25px"></i>Mes Commandes</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-info-circle" style="width: 25px"></i>Mes Infos</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown ml-2 d-sm-block d-md-none">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mon Compte
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right ft-0875rem" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#"><i class="fa fa-sign-out" style="width: 25px"></i>Déconnexion</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-shopping-bag" style="width: 25px"></i>Mes Commandes</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-info-circle" style="width: 25px"></i>Mes Infos</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown d-none d-md-block">
+                    <div class="card border-0 bg-main py-0 px-0 dropdown">
+                        <img src="assets/cart.png" width="40" height="40" alt="Card image" >
+                        <div class="card-img-overlay py-0 px-0">
+                            <a class="text-dark" id="navbarDropdownMenuCart" href="#"> <span class="badge bg-cart mt-2 ml-3">5</span></a>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu dropdown-menu-right border-0 shadow-lg ft-0875rem" aria-labelledby="navbarDropdownMenuCart">
+                        <a href="#" class="dropdown-header green-color"> <i class="fa fa-shopping-bag" style="width: 25px"></i>Passer en caisse</a>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header pl-3 brown-color">Derniers articles ajoutés</h6>
+                        <table class="table table-striped mb-0 py-0" style="width: 400px!important;">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <img src="https://dummyimage.com/100x100/28279a/aaa" class="img-fluid" style="max-width: 80px;" alt="">
+                                </td>
+                                <td class="align-middle text-center" colspan="3">Selle en cuir marron</td>
+                                <td class="align-middle text-center">3 x 199€</td>
+                                <td class="align-middle text-center"><a href="#" class="text-center"><i class="fa fa-trash brown-color ft-1dot5rem"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="https://dummyimage.com/100x100/28279a/aaa" class="img-fluid" style="max-width: 80px;" alt="">
+                                </td>
+                                <td class="align-middle text-center" colspan="3">Selle en cuir marron</td>
+                                <td class="align-middle text-center">3 x 199€</td>
+                                <td class="align-middle text-center"><a href="#" class="text-center"><i class="fa fa-trash brown-color ft-1dot5rem"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="https://dummyimage.com/100x100/28279a/aaa" class="img-fluid" style="max-width: 80px;" alt="">
+                                </td>
+                                <td class="align-middle text-center" colspan="3">Selle en cuir marron</td>
+                                <td class="align-middle text-center">3 x 199€</td>
+                                <td class="align-middle text-center"><a href="#" class="text-center"><i class="fa fa-trash brown-color ft-1dot5rem"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="dropdown-divider mt-0"></div>
+                        <h6 class="dropdown-header pl-3 brown-color">
+                            <a href="#" > + 8 autres... </a>
+                            <span class="font-weight-bold float-right">Total Panier TTC 256€99</span>
+                        </h6>
+                    </div>
+                </li>
+
+                <li class="nav-item mr-sm-4">
+                    <a class="nav-link d-none d-lg-block" href="#">Panier</a>
+                    <a class="nav-link d-sm-block d-md-none ml-2" href="#"><img src="assets/cart.png" width="20" height="20" alt="Card image" > Panier (<span class="green-color">9</span>)</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- SideBar -->
+            <nav class="col-md-2 d-none d-md-block bg-main px-0">
+                <div class="sidebar-not-sticky">
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 brown-color">
+                        <span>Nos Catégories</span>
+                        <a class="d-flex align-items-center text-muted" href="#">
+                            <span data-feather="plus-circle"></span>
+                        </a>
+                    </h6>
+
+                    <ul class="nav flex-column pl-1">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="home"></span>
+                                Accessoires
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file"></span>
+                                Selles
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="shopping-cart"></span>
+                                Vêtements
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="users"></span>
+                                Botes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main -->
+            <div class="col-md-10 ml-sm-auto col-lg-10 px-4">
+                <h2 class="h2 mt-4 brown-color d-none d-md-block">Mon Panier <img src="assets/cart.png" width="48"> </h2>
+                <h2 class="h3 mt-4 brown-color d-block d-md-none">Mon Panier <img src="assets/cart.png" width="32"> </h2>
+                <!-- CartTab Desktop & Tabs-->
+                <div class="d-none d-sm-block">
+                    <div class="table-responsive shadow">
+                        <table class="mt-3 mb-0 table table-striped border-0 border rounded-lg text-center">
+                            <thead>
+                            <tr>
+                                <th class="border-0" scope="col">Image</th>
+                                <th class="border-0" scope="col">Nom de l'article</th>
+                                <th class="border-0" scope="col">Prix Unitaire</th>
+                                <th class="border-0" scope="col">Quantité</th>
+                                <th class="border-0" scope="col">Sous-total</th>
+                                <th class="border-0" scope="col">Supprimer</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <th class="align-middle border-0" scope="row">
+                                    <img src="https://dummyimage.com/100x100/28279a/aaa" class="card-img-top" style="max-width: 100px; max-height: 100px" alt="...">
+                                </th>
+                                <td class="align-middle border-0">Selle pour cheval de guerre de la mort qui tue</td>
+                                <td class="align-middle border-0">199.99€</td>
+                                <td class="align-middle border-0">
+                                    <select class="browser-default custom-select">
+                                      <option selected>1</option>
+                                      <option value="1">2</option>
+                                      <option value="2">3</option>
+                                      <option value="3">4</option>
+                                    </select>
+                                </td>
+                                <td class="align-middle border-0">199.99€</td>
+                                <td class="align-middle text-center border-0"><a href="#" class="text-center"><i class="fa fa-trash brown-color ft-1dot5rem"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th class="align-middle border-0" scope="row">
+                                    <img src="https://dummyimage.com/100x100/28279a/aaa" class="card-img-top" style="max-width: 100px; max-height: 100px" alt="...">
+                                </th>
+                                <td class="align-middle border-0">Selle pour cheval de guerre de la mort qui tue</td>
+                                <td class="align-middle border-0">199.99€</td>
+                                <td class="align-middle border-0">
+                                    <select class="browser-default custom-select">
+                                      <option selected>1</option>
+                                      <option value="1">2</option>
+                                      <option value="2">3</option>
+                                      <option value="3">4</option>
+                                    </select>
+                                </td>
+                                <td class="align-middle border-0">199.99€</td>
+                                <td class="align-middle text-center border-0"><a href="#" class="text-center"><i class="fa fa-trash brown-color ft-1dot5rem"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th class="align-middle border-0" scope="row">
+                                    <img src="https://dummyimage.com/100x100/28279a/aaa" class="card-img-top" style="max-width: 100px; max-height: 100px" alt="...">
+                                </th>
+                                <td class="align-middle border-0">Selle pour cheval de guerre de la mort qui tue</td>
+                                <td class="align-middle border-0">199.99€</td>
+                                <td class="align-middle border-0">
+                                    <select class="browser-default custom-select">
+                                      <option selected>1</option>
+                                      <option value="1">2</option>
+                                      <option value="2">3</option>
+                                      <option value="3">4</option>
+                                    </select>
+                                </td>
+                                <td class="align-middle border-0">199.99€</td>
+                                <td class="align-middle text-center border-0"><a href="#" class="text-center"><i class="fa fa-trash brown-color ft-1dot5rem"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <a class="mt-4 mb-3 btn btn-brown rounded-pill mr-1 ft-0875rem" href="#">Continuer les achats</a>
+                    <a class="mt-4 mb-3 btn btn-green rounded-pill ft-0875rem" href="#">Réactualiser le panier</a>
+                </div>
+                <!-- CartTab Mobile -->
+                <div class="d-block d-sm-none">
+                    <div class="card-deck pt-3">
+                        <div class="card mx-auto h-100 border-0 shadow mb-3 col-10">
+                            <img src="https://dummyimage.com/2000x2000/ccc/aaa" class="card-img-top mt-2 mx-auto shadow" alt="..." style="max-width:140px; max-height: 140px;">
+                            <div class="card-body">
+                                <h5 class="card-title mb-1">Nom Article</h5>
+                                <div class="card-text mb-1">Prix Unitaire <span class="float-right">299.99€</span></div>
+                                <div class="card-text mb-3">Quantité
+                                    <select class="col-4 browser-default custom-select-sm custom-select mb-1 float-right">
+                                        <option selected>1</option>
+                                        <option value="1">2</option>
+                                        <option value="2">3</option>
+                                        <option value="3">2000</option>
+                                    </select>
+                                </div>
+                                <div class="card-text mb-2">Sous-Total <span class="float-right">299.99€</span></div>
+                                <a class="float-left"><i class="fa fa-trash red-color ft-1dot5rem"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="card mx-auto h-100 border-0 shadow mb-3 col-10">
+                            <img src="https://dummyimage.com/2000x2000/ccc/aaa" class="card-img-top mt-2 mx-auto shadow" alt="..." style="max-width:140px; max-height: 140px;">
+                            <div class="card-body">
+                                <h5 class="card-title mb-1">Nom Article</h5>
+                                <div class="card-text mb-1">Prix Unitaire <span class="float-right">299.99€</span></div>
+                                <div class="card-text mb-3">Quantité
+                                    <select class="col-4 browser-default custom-select-sm custom-select mb-1 float-right">
+                                        <option selected>1</option>
+                                        <option value="1">2</option>
+                                        <option value="2">3</option>
+                                        <option value="3">2000</option>
+                                    </select>
+                                </div>
+                                <div class="card-text mb-2">Sous-Total <span class="float-right">299.99€</span></div>
+                                <a class="float-left"><i class="fa fa-trash red-color ft-1dot5rem"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="card mx-auto h-100 border-0 shadow mb-3 col-10">
+                            <img src="https://dummyimage.com/2000x2000/ccc/aaa" class="card-img-top mt-2 mx-auto shadow" alt="..." style="max-width:140px; max-height: 140px;">
+                            <div class="card-body">
+                                <h5 class="card-title mb-1">Nom Article</h5>
+                                <div class="card-text mb-1">Prix Unitaire <span class="float-right">299.99€</span></div>
+                                <div class="card-text mb-3">Quantité
+                                    <select class="col-4 browser-default custom-select-sm custom-select mb-1 float-right">
+                                        <option selected>1</option>
+                                        <option value="1">2</option>
+                                        <option value="2">3</option>
+                                        <option value="3">2000</option>
+                                    </select>
+                                </div>
+                                <div class="card-text mb-2">Sous-Total <span class="float-right">299.99€</span></div>
+                                <a class="float-left"><i class="fa fa-trash red-color ft-1dot5rem"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="card mx-auto h-100 border-0 shadow mb-3 col-10">
+                            <img src="https://dummyimage.com/2000x2000/ccc/aaa" class="card-img-top mt-2 mx-auto shadow" alt="..." style="max-width:140px; max-height: 140px;">
+                            <div class="card-body">
+                                <h5 class="card-title mb-1">Nom Article</h5>
+                                <div class="card-text mb-1">Prix Unitaire <span class="float-right">299.99€</span></div>
+                                <div class="card-text mb-3">Quantité
+                                    <select class="col-4 browser-default custom-select-sm custom-select mb-1 float-right">
+                                        <option selected>1</option>
+                                        <option value="1">2</option>
+                                        <option value="2">3</option>
+                                        <option value="3">2000</option>
+                                    </select>
+                                </div>
+                                <div class="card-text mb-2">Sous-Total <span class="float-right">299.99€</span></div>
+                                <a class="float-left"><i class="fa fa-trash red-color ft-1dot5rem"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center pt-2 mb-3">
+                        <a class="btn btn-brown rounded-pill mb-2 ft-0775rem" href="#">Continuer les achats</a>
+                        <a class="btn btn-green rounded-pill mb-2 ft-0775rem" href="#">Réactualiser le panier</a>
+                    </div>
+                </div>
+
+                <!-- Card Recap + send -->
+                <div class="row mb-3">
+                    <div class="ml-auto">
+                            <div class="d-flex flex-wrap-reverse justify-content-between">
+                                <div class="order-2 mx-auto col-12 col-sm-8 col-md-7 col-lg-7">
+                                    <div class="card border-0 shadow-lg mb-3">
+                                        <div class="card-header font-weight-bold border-0 ft-1rem">Récapitulatif</div>
+                                        <div class="card-body text-right">
+                                            <p class="text-muted card-text">Sous-Total HT : <span class="text-dark">195.99€</span></p>
+                                            <p class="text-muted card-text">Sous-Total TTC : <span class="text-dark">199.99€</span></p>
+                                            <h6 class="h6">Total HT : 195.99€</h6>
+                                            <h5 class="h4">Total TTC : 199.99€</h5>
+                                        </div>
+                                         <div class="card-footer border-0 shadow-sm">
+                                             <a href="#" class="text-muted float-left">Livrer à plusieurs adresses</a>
+                                             <a href="#" class="btn btn-dark float-right ft-0875rem rounded-pill">Commander</a></div>
+                                    </div>
+                                </div>
+                                <!-- <div class="order-1 col-12 col-sm-6 col-md-6 col-lg-3">
+                                    <div class="card shadow-sm mb-3">
+                                        <div class="card-header">Estimer les frais de livraison</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">A voir</h5>
+                                        </div>
+                                         <div class="card-footer text-center shadow-sm"><a href="#" class="btn btn-secondary rounded-pill ft-0875rem">Estimer</a></div>
+                                    </div>
+                                </div>
+                                -->
+                                <div class="order-1 mx-auto col-12 col-sm-8 col-md-6 col-lg-5">
+                                    <div class="card border-0 shadow mb-3 ">
+                                        <div class="card-header border-0 ">Appliquer un code promo</div>
+                                        <div class="card-body">
+                                            <div class="input-group mb-1">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Code</span>
+                                                </div>
+                                                <input type="text" class="form-control" aria-label="Default"
+                                                       aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        </div>
+                                         <div class="card-footer border-0 text-center shadow-sm"><a href="#" class="btn btn-green rounded-pill ft-0875rem">Appliquer</a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                </div>
+                </div>
+
+
+
+            </div>
+
+            <!-- Footer -->
+            <div class="col-12 bg-main px-4">
+                <footer class="page-footer font-small">
+                    <div class="container">
+                        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+                            <div class="col-md-2 mb-3">
+                                <h6 class="font-weight-bold">
+                                    <a class="text-decoration-none text-dark" href="#">A propos</a>
+                                </h6>
+                            </div>
+
+                            <div class="col-md-2 mb-3">
+                                <h6 class="font-weight-bold">
+                                    <a class="text-decoration-none text-dark" href="#">Contact</a>
+                                </h6>
+                            </div>
+
+                            <div class="col-md-2 mb-3">
+                                <h6 class="font-weight-bold">
+                                    <a class="text-decoration-none text-dark" href="#">Plan du site</a>
+                                </h6>
+                            </div>
+
+                            <div class="col-md-2 mb-3">
+                                <h6 class="font-weight-bold">
+                                    <a class="text-decoration-none text-dark" href="#">Mentions légales</a>
+                                </h6>
+                            </div>
+
+                            <div class="col-md-2 mb-3">
+                                <h6 class="font-weight-bold">
+                                    <a class="text-decoration-none text-dark" href="#">Cookies <br>& Confidentialité</a>
+                                </h6>
+                            </div>
+                        </div>
+                        <hr class="rgba-white-light" style="margin: 0 15%;">
+                        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+                            <div class="col-md-8 col-12 mt-5">
+                                <p class="text-muted" style="line-height: 1.7rem">MD EQUITATION - 40 rue de la courgette 40290 Habas France - Vente d'accessoires équestres - SAS au capital de 10 000€ - SIRET 000 000 000 000 - NAF/APE 2919B</p>
+                            </div>
+                        </div>
+                        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+                        <div class="row pb-3">
+                            <div class="mx-auto">
+                                <div class="mb-5 ">
+                                    <a class="fb-ic">
+                                        <i class="fa fa-facebook-f fa-lg brown-color ml-4 mr-4"> </i>
+                                    </a>
+                                    <a class="tw-ic">
+                                        <i class="fa fa-twitter fa-lg brown-color mr-4"> </i>
+                                    </a>
+                                    <a class="ins-ic">
+                                        <i class="fa fa-instagram fa-lg brown-color mr-4"> </i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="footer-copyright text-center py-2">© 2020 Copyright
+                        <a href="https://mdbootstrap.com/"> MDEquitation.com</a>
+                        <p> Tout droits réservés </p>
+                        <p class="text-muted">Site web crée et conçu par Sascha Sallès</p>
+                    </div>
+
+
+                </footer>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $(".dropdown, .btn-group").hover(function(){
+                const dropdownMenu = $(this).children(".dropdown-menu");
+                if(dropdownMenu.is(":visible")){
+                    dropdownMenu.parent().toggleClass("open");
+                }
+            });
+        });
+    </script>
+</body>
+
+
+

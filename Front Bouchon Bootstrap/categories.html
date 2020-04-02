@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDEquitation - Catégories</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-light navbar-expand-md d-flex justify-content-end nav-config bg-main p-0">
+        <button class="navbar-toggler border-0 mr-auto" type="button" data-toggle="collapse"
+                data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars brown-color ft-1dot5rem"></i>
+        </button>
+
+        <h1 class="h1 mr-auto">
+            <a class="navbar-brand mr-auto ml-3 text-dark" href="#">
+                <img src="assets/horse.png" width="30" height="30" class="d-inline-block m-auto" alt="">
+                <span class="dark-green-color">MD</span>Equitation
+            </a>
+        </h1>
+
+
+        <div class="card shadow-none border-0 bg-main mr-1 d-xs-block d-sm-block d-md-none">
+            <img src="assets/cart.png" width="40" height="40" alt="Card image">
+            <div class="card-img-overlay py-0 px-0">
+                <a class="text-dark" id="navbarDropdownMenuCart" href="#"> <span
+                        class="badge bg-cart mt-2 ml-3">5</span></a>
+            </div>
+        </div>
+
+
+        <button class="btn rounded-pill mr-1 ft-1dot5rem btn-inverse navbar-btn d-xs-block d-md-none" data-toggle="collapse"
+                data-target="#nav2"><i class=" fa green-color fa-search" aria-hidden="true"></i></button>
+        <div class="collapse m-auto d-xs-block d-md-none" id="nav2">
+            <form class="navbar-form" role="search" id="srch-frm">
+                <div class="input-group">
+                    <input class="form-control ft-0775rem mb-3 rounded-pill h-input border-0 shadow-sm typeahead"
+                           placeholder="Rechercher..." name="pn" id="srch-term" type="text">
+                </div>
+            </form>
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+            <form class="form-inline mx-auto">
+                <select class="d-none d-lg-block custom-select border-0 rounded-pill shadow-sm cat-config ft-0775rem"
+                        id="inputGroupSelect01">
+                    <option>Toutes les catégories</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+
+                <div class="form-group has-search d-none d-md-block">
+                    <div class="input-group-append shadow-sm rounded-pill bg-green ml-2">
+                        <input class="form-control form-control-light h-input rounded-pill border-0 shadow-sm" type="text"
+                               placeholder="Rechercher..." aria-label="Search">
+                        <button class="btn border-0 fa-search-color" type="button">
+                            <i class="fa fa-search "></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item d-none d-md-block dropdown mr-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mon Compte
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right border-0 shadow-lg ft-0875rem"
+                         aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#"><i class="fa fa-sign-out" style="width: 25px"></i>Déconnexion</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-shopping-bag" style="width: 25px"></i>Mes
+                            Commandes</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-info-circle" style="width: 25px"></i>Mes Infos</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown ml-2 d-sm-block d-md-none">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mon Compte
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right ft-0875rem" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#"><i class="fa fa-sign-out" style="width: 25px"></i>Déconnexion</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-shopping-bag" style="width: 25px"></i>Mes
+                            Commandes</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-info-circle" style="width: 25px"></i>Mes Infos</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown d-none d-md-block">
+                    <div class="card border-0 bg-main py-0 px-0 dropdown">
+                        <img src="assets/cart.png" width="40" height="40" alt="Card image">
+                        <div class="card-img-overlay py-0 px-0">
+                            <a class="text-dark" id="navbarDropdownMenuCart" href="#"> <span
+                                    class="badge bg-cart mt-2 ml-3">5</span></a>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu dropdown-menu-right border-0 shadow-lg ft-0875rem"
+                         aria-labelledby="navbarDropdownMenuCart">
+                        <a href="#" class="dropdown-header green-color"> <i class="fa fa-shopping-bag"
+                                                                            style="width: 25px"></i>Passer en caisse</a>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header pl-3 brown-color">Derniers articles ajoutés</h6>
+                        <table class="table table-striped mb-0 py-0" style="width: 400px!important;">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <img src="//placehold.it/800x800/" class="img-fluid" style="max-width: 80px;" alt="">
+                                </td>
+                                <td class="align-middle text-center" colspan="3">Selle en cuir marron</td>
+                                <td class="align-middle text-center">3 x 199€</td>
+                                <td class="align-middle text-center"><a href="#" class="text-center"><i
+                                        class="fa fa-trash brown-color ft-1dot5rem"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="//placehold.it/800x800/" class="img-fluid" style="max-width: 80px;" alt="">
+                                </td>
+                                <td class="align-middle text-center" colspan="3">Selle en cuir marron</td>
+                                <td class="align-middle text-center">3 x 199€</td>
+                                <td class="align-middle text-center"><a href="#" class="text-center"><i
+                                        class="fa fa-trash brown-color ft-1dot5rem"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="//placehold.it/800x800/" class="img-fluid" style="max-width: 80px;" alt="">
+                                </td>
+                                <td class="align-middle text-center" colspan="3">Selle en cuir marron</td>
+                                <td class="align-middle text-center">3 x 199€</td>
+                                <td class="align-middle text-center"><a href="#" class="text-center"><i
+                                        class="fa fa-trash brown-color ft-1dot5rem"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="dropdown-divider mt-0"></div>
+                        <h6 class="dropdown-header pl-3 brown-color">
+                            <a href="#"> + 8 autres... </a>
+                            <span class="font-weight-bold float-right">Total Panier TTC 256€99</span>
+                        </h6>
+                    </div>
+                </li>
+
+
+                <li class="nav-item mr-sm-4">
+                    <a class="nav-link d-none d-lg-block" href="#">Panier</a>
+                    <a class="nav-link d-sm-block d-md-none ml-2" href="#"><img src="assets/cart.png" width="20" height="20"
+                                                                                alt="Card image"> Panier (<span
+                            class="green-color">9</span>)</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="d-flex justify-content-center mt-4 mb-3">
+        <h2 class="h2 mt-4 brown-color d-none d-md-block"><img src="assets/category.png" width="48"> Catégories </h2>
+        <h2 class="h3 mt-4 brown-color d-block d-md-none"><img src="assets/category.png" width="32"> Catégories </h2>
+    </div>
+
+    <div class="container mx-auto mb-5">
+        <div class="row row-cols-1 row-cols-md-3 mx-auto">
+            <div class="col mb-4 mt-3">
+                <div class="card border-0 mx-auto" style="max-width: 170px; min-width: 170px;">
+                    <img class="card-img" src="https://dummyimage.com/400x400/28279a/aaa" alt="Card image">
+                    <a href="#" class="card-text stretched-link nav-link text-dark mx-auto mt-3">Nom Catégorie</a>
+                </div>
+            </div>
+            <div class="col mb-4 mt-3">
+                <div class="card border-0 mx-auto" style="max-width: 170px; min-width: 170px;">
+                    <img class="card-img" src="https://dummyimage.com/400x400/28279a/aaa" alt="Card image">
+                    <a href="#" class="card-text stretched-link nav-link text-dark mx-auto mt-3">Nom Catégorie</a>
+                </div>
+            </div>
+            <div class="col mb-4 mt-3">
+                <div class="card border-0 mx-auto" style="max-width: 170px; min-width: 170px;">
+                    <img class="card-img" src="https://dummyimage.com/400x400/28279a/aaa" alt="Card image">
+                    <a href="#" class="card-text stretched-link nav-link text-dark mx-auto mt-3">Nom Catégorie</a>
+                </div>
+            </div>
+            <div class="col mb-4 mt-3">
+                <div class="card border-0 mx-auto" style="max-width: 170px; min-width: 170px;">
+                    <img class="card-img" src="https://dummyimage.com/400x400/28279a/aaa" alt="Card image">
+                    <a href="#" class="card-text stretched-link nav-link text-dark mx-auto mt-3">Nom Catégorie</a>
+                </div>
+            </div>
+            <div class="col mb-4 mt-3">
+                <div class="card border-0 mx-auto" style="max-width: 170px; min-width: 170px;">
+                    <img class="card-img" src="https://dummyimage.com/400x400/28279a/aaa" alt="Card image">
+                    <a href="#" class="card-text stretched-link nav-link text-dark mx-auto mt-3">Nom Catégorie</a>
+                </div>
+            </div>
+            <div class="col mb-4 mt-3">
+                <div class="card border-0 mx-auto" style="max-width: 170px; min-width: 170px;">
+                    <img class="card-img" src="https://dummyimage.com/400x400/28279a/aaa" alt="Card image">
+                    <a href="#" class="card-text stretched-link nav-link text-dark mx-auto mt-3">Nom Catégorie</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-12 bg-main px-4">
+        <footer class="page-footer font-small">
+            <div class="container">
+                <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+                    <div class="col-md-2 mb-3">
+                        <h6 class="font-weight-bold">
+                            <a class="text-decoration-none text-dark" href="#">A propos</a>
+                        </h6>
+                    </div>
+
+                    <div class="col-md-2 mb-3">
+                        <h6 class="font-weight-bold">
+                            <a class="text-decoration-none text-dark" href="#">Contact</a>
+                        </h6>
+                    </div>
+
+                    <div class="col-md-2 mb-3">
+                        <h6 class="font-weight-bold">
+                            <a class="text-decoration-none text-dark" href="#">Plan du site</a>
+                        </h6>
+                    </div>
+
+                    <div class="col-md-2 mb-3">
+                        <h6 class="font-weight-bold">
+                            <a class="text-decoration-none text-dark" href="#">Mentions légales</a>
+                        </h6>
+                    </div>
+
+                    <div class="col-md-2 mb-3">
+                        <h6 class="font-weight-bold">
+                            <a class="text-decoration-none text-dark" href="#">Cookies <br>& Confidentialité</a>
+                        </h6>
+                    </div>
+                </div>
+                <hr class="rgba-white-light" style="margin: 0 15%;">
+                <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+                    <div class="col-md-8 col-12 mt-5">
+                        <p class="text-muted" style="line-height: 1.7rem">MD EQUITATION - 40 rue de la courgette 40290 Habas
+                            France - Vente d'accessoires équestres - SAS au capital de 10 000€ - SIRET 000 000 000 000 -
+                            NAF/APE 2919B</p>
+                    </div>
+                </div>
+                <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+                <div class="row pb-3">
+                    <div class="mx-auto">
+                        <div class="mb-5 ">
+                            <a class="fb-ic">
+                                <i class="fa fa-facebook-f fa-lg brown-color ml-4 mr-4"> </i>
+                            </a>
+                            <a class="tw-ic">
+                                <i class="fa fa-twitter fa-lg brown-color mr-4"> </i>
+                            </a>
+                            <a class="ins-ic">
+                                <i class="fa fa-instagram fa-lg brown-color mr-4"> </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="footer-copyright text-center py-2">© 2020 Copyright
+                <a href="https://mdbootstrap.com/"> MDEquitation.com</a>
+                <p> Tout droits réservés </p>
+                <p class="text-muted">Site web crée et conçu par Sascha Sallès</p>
+            </div>
+
+
+        </footer>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown, .btn-group").hover(function () {
+                const dropdownMenu = $(this).children(".dropdown-menu");
+                if (dropdownMenu.is(":visible")) {
+                    dropdownMenu.parent().toggleClass("open");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
