@@ -2,8 +2,7 @@ import faker from 'faker'
 import React from 'react'
 import {Dropdown, Image, Icon, Menu} from 'semantic-ui-react'
 import Link from 'next/link'
-import {MediaContextProvider, Media} from "../helpers/media";
-import app from "../helpers/firebase";
+import {MediaContextProvider, Media} from "../media/media";
 
 
 const trigger = (
@@ -38,7 +37,7 @@ const AccountNav = () => (
                     Paramètres
                 </Dropdown.Item>
 
-                <Dropdown.Item onClick={() => app.auth().signOut()}>
+                <Dropdown.Item>
                     <Icon name='sign out' />
                     Déconnexion
                 </Dropdown.Item>

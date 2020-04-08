@@ -2,7 +2,7 @@ import AwesomeSlider from 'react-awesome-slider';
 import React from 'react'
 import {Image} from "semantic-ui-react";
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
-import { Media, MediaContextProvider } from "../helpers/media"
+import { Media, MediaContextProvider } from "../media/media"
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 

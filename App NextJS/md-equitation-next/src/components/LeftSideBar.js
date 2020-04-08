@@ -1,5 +1,5 @@
 import {Menu, Responsive, Sidebar} from "semantic-ui-react";
-import {MediaContextProvider, Media} from "../helpers/media";
+import {MediaContextProvider, Media} from "../media/media";
 import PropTypes from "prop-types";
 import React from "react";
 

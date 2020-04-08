@@ -1,7 +1,7 @@
 import React from "react"
 import Document, { Html, Head, Main, NextScript } from "next/document"
 
-import { mediaStyles } from "../helpers/media"
+import { mediaStyles } from "../media/media"
 
 export default class MyDocument extends Document {
     render() {

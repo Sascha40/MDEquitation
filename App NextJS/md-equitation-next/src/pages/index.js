@@ -5,13 +5,8 @@ import Footer from "../components/Footer";
 import LeftSideBar from "../components/LeftSideBar";
 import HomeCaroussel from "../components/HomeCaroussel";
 import ArticleCard from "../components/ArticleCard";
-import { Media, MediaContextProvider } from "../helpers/media"
+import { Media, MediaContextProvider } from "../media/media";
 
-const isBrowser = () => typeof window !== 'undefined'
-const getWidth = () => {
-    if (isBrowser()) return window.innerWidth
-    return Infinity
-}
 
 export default class Index extends Component{
     state = {

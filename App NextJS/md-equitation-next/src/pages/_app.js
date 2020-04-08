@@ -3,6 +3,7 @@ import "../components/styles.css"
 import React from 'react';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
+import Firebase, { FirebaseContext } from '../firebase';
 
 export default class MyApp extends App {
     static async getInitialProps({ Component, router, ctx }) {
@@ -19,7 +20,7 @@ export default class MyApp extends App {
         const { Component, pageProps } = this.props;
 
         return (
-            <Container>
+            <div>
                 <Head>
                     <meta charSet="utf-8"/>
                     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -31,8 +32,13 @@ export default class MyApp extends App {
                     <link rel="stylesheet"
                           href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
                 </Head>
-
-                <Component {...pageProps} />
+                <Container>
+                    <FirebaseContext.Provider value={new Firebase()}>
+                        <Component {...pageProps} />
+                    </FirebaseContext.Provider>
+                </Container>
+                
+                
 
                 <style global jsx>
                     {
@@ -43,7 +49,7 @@ export default class MyApp extends App {
                     `
                     }
                 </style>
-            </Container>
+            </div>
         );
     }
 }

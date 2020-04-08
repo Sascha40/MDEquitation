@@ -4,7 +4,7 @@ import SearchInput from "./SearchInput";
 import SearchSelector from "./SearchSelector";
 import AccountNav from "./AccountNav";
 import CartNav from "./CartNav";
-import {Media, MediaContextProvider} from "../helpers/media"
+import {Media, MediaContextProvider} from "../media/media"
 import Link from "next/link";
 
 
@@ -29,7 +29,7 @@ class NavBar extends Component {
             <div>
                 <MediaContextProvider>
                     {/*DESKTOP*/}
-                    <Media at="xl">
+                    <Media greaterThanOrEqual="xl">
                         <nav style={{
                             backgroundColor: "white",
                             width: "100vw !important",
@@ -133,7 +133,7 @@ class NavBar extends Component {
                                 <Menu.Menu position='left' className="nav-items">
                                     <div className="ml-1 my-auto ">
                                         <Dropdown
-                                            icon='bars large brown'
+                                            icon='bars'
                                             button
                                             className='icon'
                                         >
@@ -148,7 +148,7 @@ class NavBar extends Component {
                                     </div>
                                     <div className="mx-auto my-auto">
                                         <Dropdown
-                                            icon='search large brown'
+                                            icon='search'
                                             button
                                             simple
                                             className='icon'
@@ -186,7 +186,7 @@ class NavBar extends Component {
                                 <Menu.Menu position='left' className="nav-items">
                                     <div className="ml-1 my-auto ">
                                         <Dropdown
-                                            icon='bars large brown'
+                                            icon='bars'
                                             button
                                             className='icon'
                                         >
@@ -201,7 +201,7 @@ class NavBar extends Component {
                                     </div>
                                     <div className="mx-auto my-auto">
                                         <Dropdown
-                                            icon='search large brown'
+                                            icon='search'
                                             button
                                             simple
                                             className='icon'

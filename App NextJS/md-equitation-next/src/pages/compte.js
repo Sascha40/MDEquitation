@@ -5,6 +5,8 @@ import LeftSideBar from "../components/LeftSideBar";
 import Footer from "../components/Footer";
 import faker from 'faker';
 import Orders from "../components/Orders";
+{/* import { withAuth } from "../helpers/withAuth" */}
+
 
 class Compte extends Component {
     state = {
