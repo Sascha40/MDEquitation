@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
-//import "./Dropdowns.css"
+
 const options = [
     { key: 'Arabic', text: 'Arabic', value: 'Arabic' },
     { key: 'Chinese', text: 'Chinese', value: 'Chinese' },
@@ -35,8 +35,8 @@ const SearchSelector = () => (
     <Dropdown
         options={options}
         placeholder='Toutes nos catégories...'
-        fluid
         button
+        fluid={true}
         scrolling
         style={cssAttributes}
     />

@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {Button, Dropdown, Form, Icon, Image, Menu} from 'semantic-ui-react'
 import SearchInput from "./SearchInput";
 import SearchSelector from "./SearchSelector";
-import AccountNav from "./AccountNav";
+import AccountNav from "../Account/AccountNav";
 import CartNav from "./CartNav";
-import {Media, MediaContextProvider} from "../media/media"
+import {MediaContextProvider, Media} from "../../media/media";
 import Link from "next/link";
 
 

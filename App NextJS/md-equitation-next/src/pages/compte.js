@@ -1,11 +1,11 @@
 import React, {Component, createRef} from 'react';
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Nav/NavBar";
 import {Sticky, Menu, Container, Header, Button, Icon, Responsive, Segment} from "semantic-ui-react";
-import LeftSideBar from "../components/LeftSideBar";
-import Footer from "../components/Footer";
+import LeftSideBar from "../components/Layout/LeftSideBar";
+import Footer from "../components/Layout/Footer";
 import faker from 'faker';
-import Orders from "../components/Orders";
-{/* import { withAuth } from "../helpers/withAuth" */}
+import Orders from "../components/Account/Orders";
+import SignOutButton from '../components/SignOut/SignOutButton';
 
 
 class Compte extends Component {
@@ -102,10 +102,7 @@ class Compte extends Component {
                                                 active={activeItem === 'Déconnexion'}
                                                 onClick={this.handleItemClick}
                                             >
-                                            <Button className={"btn-shop"}>
-                                                <Icon name='sign out' />
-                                                Déconnexion
-                                            </Button>
+                                            <SignOutButton/>
                                             </Menu.Item>
                                         </Menu.Menu>
                                     </Menu>

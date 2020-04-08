@@ -1,8 +1,8 @@
 import React,{Component, createRef} from 'react';
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Nav/NavBar";
 import {Sticky, Header, Segment, Container, Grid, Item, Button, Icon, Label} from "semantic-ui-react";
-import Footer from "../components/Footer";
-import LeftSideBar from "../components/LeftSideBar";
+import Footer from "../components/Layout/Footer";
+import LeftSideBar from "../components/Layout/LeftSideBar";
 import HomeCaroussel from "../components/HomeCaroussel";
 import ArticleCard from "../components/ArticleCard";
 import { Media, MediaContextProvider } from "../media/media";
@@ -13,7 +13,6 @@ export default class Index extends Component{
         animation: 'overlay',
         direction: 'left',
         visible: false,
-        dimmed: false
     }
 
     contextRef = createRef()

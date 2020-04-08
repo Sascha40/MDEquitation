@@ -1,8 +1,9 @@
-import React from 'react'
-import {Button, Form, Input, Segment, Label, Popup} from 'semantic-ui-react'
+import React from 'react';
+import {Button, Form, Input, Segment, Label, Popup} from 'semantic-ui-react';
 import Router from "next/router";
 import FormIsValidModal from './FormIsValidModal';
-import { Media } from "../media/media";
+import { Media } from "../../media/media";
+
 
 class SignUpFormBase extends React.Component {
     constructor(props){
@@ -18,6 +19,7 @@ class SignUpFormBase extends React.Component {
             errorPasswordLenght: false,
             errorPasswordDontMatch: false,
             errorEmailAlreadyUsed: false,
+            errorCaptcha: false,
             modalOpen: false,
             errors: {
                 mail: { invalid : "Email invalide", alreadyUsed: "Cet email est déjà pris" },
@@ -38,8 +40,11 @@ class SignUpFormBase extends React.Component {
                             errorPasswordLenght: false,
                             errorPasswordDontMatch: false,
                             errorEmailAlreadyUsed: false,
+                            errorCaptcha: false,
                             modalOpen: false
                         });
+
+
 
 
     handleModalOpen = () => {
@@ -48,7 +53,7 @@ class SignUpFormBase extends React.Component {
 
     handleModalClose = () => {
         this.setState({ modalOpen: false})
-        this.reinitializeState
+        this.reinitializeState()
     }
     
     onChange = (event) => {
@@ -140,7 +145,8 @@ class SignUpFormBase extends React.Component {
             errorEmail,
             errorPasswordDontMatch,
             errorPasswordLenght, 
-            errorEmailAlreadyUsed
+            errorEmailAlreadyUsed, 
+            errorCaptcha
         } = this.state;
 
         const isDisabled =
@@ -149,7 +155,8 @@ class SignUpFormBase extends React.Component {
             password !== password2 ||
             email === '' ||
             firstName === '' ||
-            lastName === '';
+            lastName === '' ||
+            errorCaptcha === true;
 
 
         return (
@@ -158,7 +165,6 @@ class SignUpFormBase extends React.Component {
                     <Segment basic padded={"very"}>
 
                         <Form.Input 
-                                    fluid
                                     control={Input}
                                     icon='address card'
                                     iconPosition='left'
@@ -171,7 +177,6 @@ class SignUpFormBase extends React.Component {
                                     />
 
                         <Form.Input 
-                                    fluid
                                     control={Input}
                                     icon='address card'
                                     iconPosition='left'
@@ -185,7 +190,6 @@ class SignUpFormBase extends React.Component {
 
 
                         <Form.Input 
-                                    fluid
                                     control={Input}
                                     error={(errorEmail &&
                                         <Label basic color='red'>
@@ -206,7 +210,6 @@ class SignUpFormBase extends React.Component {
                         
             
                         <Form.Input
-                                    fluid
                                     control={Input}
                                     error={errorPasswordLenght && 
                                         <Label basic color='red'>
@@ -226,7 +229,6 @@ class SignUpFormBase extends React.Component {
 
                         <Form.Input 
                                     control={Input}
-                                    fluid
                                     error={errorPasswordDontMatch && 
                                         <Label basic color='red'>
                                             {errors.passwordDontMatch.content}
@@ -241,8 +243,9 @@ class SignUpFormBase extends React.Component {
                                     onChange={this.onChange}
                                     required
                                     />
-
-
+                            <div style={{marginLeft: "18px"}}>
+                                
+                            </div>  
                             <Popup
                                 trigger={<Button type="submit"
                                                 color='brown'

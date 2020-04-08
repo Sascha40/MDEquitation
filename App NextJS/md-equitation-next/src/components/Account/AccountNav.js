@@ -1,8 +1,9 @@
 import faker from 'faker'
 import React from 'react'
-import {Dropdown, Image, Icon, Menu} from 'semantic-ui-react'
+import {Dropdown, Image, Icon} from 'semantic-ui-react'
 import Link from 'next/link'
-import {MediaContextProvider, Media} from "../media/media";
+import {MediaContextProvider, Media} from "../../media/media";
+import SignOutButton from '../SignOut/SignOutButton';
 
 
 const trigger = (
@@ -29,19 +30,18 @@ const AccountNav = () => (
                 <Link href={"/compte"}>
                     <Dropdown.Item>
                         <Icon name='user' />
-                        Mon compte
+                        Mon Compte
                     </Dropdown.Item>
                 </Link>
                 <Dropdown.Item>
                     <Icon name='wrench'/>
                     Paramètres
                 </Dropdown.Item>
-
-                <Dropdown.Item>
-                    <Icon name='sign out' />
-                    Déconnexion
-                </Dropdown.Item>
+                <Dropdown.Header>
+            <SignOutButton/>
+            </Dropdown.Header>
             </Dropdown.Menu>
+
         </Dropdown>
    </Media>
 </MediaContextProvider>

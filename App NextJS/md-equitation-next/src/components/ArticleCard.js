@@ -8,7 +8,7 @@ const ArticleCard = () => (
         <Card.Content>
             <Card.Header>Article Name Article</Card.Header>
             <Card.Meta>Marque</Card.Meta>
-            <Card.Description fluid>
+            <Card.Description>
                 <div>
                     <Label size={"tiny"} circular content={"En stock"}/>
                     <h2 style={{float:"right", color:"rgb(143, 94, 58)", margin:"0"}}>210€99</h2>

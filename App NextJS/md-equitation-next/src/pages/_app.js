@@ -1,9 +1,10 @@
-import 'react-awesome-slider/dist/styles.css'
-import "../components/styles.css"
+import 'react-awesome-slider/dist/styles.css';
+import "../media/styles.css";
 import React from 'react';
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import Head from 'next/head';
 import Firebase, { FirebaseContext } from '../firebase';
+
 
 export default class MyApp extends App {
     static async getInitialProps({ Component, router, ctx }) {
@@ -32,11 +33,11 @@ export default class MyApp extends App {
                     <link rel="stylesheet"
                           href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
                 </Head>
-                <Container>
+                
                     <FirebaseContext.Provider value={new Firebase()}>
                         <Component {...pageProps} />
                     </FirebaseContext.Provider>
-                </Container>
+
                 
                 
 

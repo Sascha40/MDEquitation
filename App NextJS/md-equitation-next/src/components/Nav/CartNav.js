@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Header, Button, Image, Responsive, Table, Icon} from 'semantic-ui-react'
+import { Media } from '../../media/media'
 
 const width = {width:"50px"}
 const position = {position:"absolute", zIndex:"1200", color: "white", fontWeight:"600"}
@@ -14,7 +15,8 @@ const cssAttributes =
     marginLeft: "-320px",
     position: "absolute",
     zIndex:"2000",
-    border: "solid 1px rgb(222,222,223)"
+    border: "solid 1px rgb(222,222,223)",
+    backgroundColor: "white",
     }
 
 class CartNav extends Component {
@@ -45,14 +47,19 @@ class CartNav extends Component {
                 <a style={position} className="margin-cart"
                    href={"http://www.google.fr"}> 10 </a>
                 <Image style={width} src={"/cart.png"} as={'a'}  href={"http://www.google.fr"}
-                       fluid />
+                 />
 
                 {this.state.isHovering &&
-                <Responsive minWidth={958.98}>
-                    <Table padded style={cssAttributes} >
+                <Media greaterThanOrEqual="lg">
+                    <Table basic='very' padded style={cssAttributes}>
                         <Table.Header>
                             <Table.Row>
-                                <Table.HeaderCell colSpan={'3'} >Deniers produits ajoutés</Table.HeaderCell>
+                                <Table.HeaderCell colSpan={'3'} >
+                                    <Header as='h3' className="mt-1">
+                                        Deniers produits ajoutés
+                                    </Header>
+                                    </Table.HeaderCell>
+                                <br/>
                             </Table.Row>
                         </Table.Header>
                         <Table.Body>
@@ -140,7 +147,7 @@ class CartNav extends Component {
                         </Table.Footer>
                     </Table>
 
-                </Responsive>
+                </Media>
 
 
 

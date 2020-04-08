@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {List, Divider, Container, Icon, Header} from "semantic-ui-react";
-import {MediaContextProvider, Media} from "../media/media";
+import {MediaContextProvider, Media} from "../../media/media";
 class Footer extends Component {
     render() {
         const footer = {

@@ -3,7 +3,7 @@ import _ from 'lodash'
 import faker from 'faker'
 import React, { Component } from 'react'
 import { Search, Grid, Label, Form } from 'semantic-ui-react'
-//import "./SearchInput.css"
+
 
 const source = _.times(10, () => ({
     title: faker.company.companyName("Apple"),
@@ -72,7 +72,7 @@ class SearchInput extends Component {
                             onSearchChange={_.debounce(this.handleSearchChange, 500, {
                                 leading: true,
                             })}
-                            fluid
+                            fluid={true}
                             results={results}
                             value={value}
                             noResultsMessage={"Pas de résultats ..😔"}

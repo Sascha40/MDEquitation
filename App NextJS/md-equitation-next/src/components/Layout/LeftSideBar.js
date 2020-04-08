@@ -1,5 +1,5 @@
 import {Menu, Responsive, Sidebar} from "semantic-ui-react";
-import {MediaContextProvider, Media} from "../media/media";
+import {MediaContextProvider, Media} from "../../media/media";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -13,7 +13,6 @@ const LeftSideBar = ({ animation, direction, visible }) => (
                 animation={animation}
                 direction={direction}
                 icon='labeled'
-                vertical
                 visible={visible}
                 style={{width:"260px", paddingTop:"100px", border: "none", backgroundColor:"white"}}
             >
