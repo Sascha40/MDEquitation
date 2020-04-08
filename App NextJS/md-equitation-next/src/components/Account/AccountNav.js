@@ -37,9 +37,9 @@ const AccountNav = () => (
                     <Icon name='wrench'/>
                     Paramètres
                 </Dropdown.Item>
-                <Dropdown.Header>
-            <SignOutButton/>
-            </Dropdown.Header>
+                <Dropdown.Header className="mx-auto">
+                    <SignOutButton/>
+                </Dropdown.Header>
             </Dropdown.Menu>
 
         </Dropdown>
