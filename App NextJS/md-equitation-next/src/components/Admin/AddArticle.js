@@ -166,7 +166,7 @@ class AddArticle extends Component {
                 this.props.firebase.storageRef.child(`images/${image1.name}`).getDownloadURL().then(url => {
                     console.log(url);
                     this.setState({url});
-                    this.addData()
+                    this.addData();
                 })
                 .then(() => this.setState({...INITIAL_STATE}))
             },

@@ -4,9 +4,20 @@ import {Sticky, Header, Segment, Dimmer, Loader, Container, Grid, Item, Button, 
 import Footer from "../components/Layout/Footer";
 import LeftSideBar from "../components/Layout/LeftSideBar";
 import HomeCaroussel from "../components/HomeCaroussel";
-import ArticleCard from "../components/ArticleCard";
+import {ArticleCard} from "../components/ArticleCard";
 import { Media, MediaContextProvider } from "../media/media";
-import { withFirebase } from "../firebase"
+import { withFirebase } from "../firebase";
+import Link from 'next/link'
+
+
+const PostLink = props => (
+    <li>
+      <Link href="/article/[id]" as={`/article/${props.id}`}>
+        <a>{props.id}</a>
+      </Link>
+    </li>
+  );
+
 
 class Index extends Component{
     state = {
@@ -82,13 +93,14 @@ class Index extends Component{
                                     <Card.Group centered>
                                     {articles.map(article => (
                                                 article.isOnTop && 
-                                                <ArticleCard 
-                                                    image={article.url}
-                                                    name={article.Name}
-                                                    brand={article.Brand}
-                                                    price={`${article.Price}€`}
-                                                    crossedprice={`${article.CrossedPrice}€`}
-                                                />
+                                                    <ArticleCard 
+                                                        LinkName={article.Name}
+                                                        image={article.url}
+                                                        name={article.Name}
+                                                        brand={article.Brand}
+                                                        price={`${article.Price}€`}
+                                                        crossedprice={`${article.CrossedPrice}€`}
+                                                    />
                                         ))}
                                     </Card.Group>
                                 </Media>
