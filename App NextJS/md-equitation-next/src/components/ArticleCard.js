@@ -12,10 +12,8 @@ export const ArticleCard = props => {
                     <Card.Header>{props.name}</Card.Header>
                     <Card.Meta>{props.brand}</Card.Meta>
                     <Card.Description>
-                        <div>
                             <Label size={"tiny"} circular content={"En stock"}/>
                             <h2 style={{float:"right", color:"rgb(143, 94, 58)", margin:"0"}}>{props.price}</h2>
-                        </div>
                         <h5 style={{float:"right",margin: "0"}}><del>{props.crossedprice}</del></h5>
                     </Card.Description>
                     <div className={"mt-2"}>

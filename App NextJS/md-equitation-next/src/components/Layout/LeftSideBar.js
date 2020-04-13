@@ -24,30 +24,15 @@ const LeftSideBar = ({ animation, direction, visible }) => (
                     </Menu.Item>
 
                     <Menu.Item>
-                        <Menu.Header>CMS Solutions</Menu.Header>
+                        <Menu.Header>Filtrer par :</Menu.Header>
 
                             <Menu.Item
-                                name='rails'  as={'a'}
+                                name='Prix Croissant'  as={'a'}
                             />
                             <Menu.Item
-                                name='python' as={'a'}
-                            />
-                            <Menu.Item
-                                name='php' as={'a'}
+                                name='Prix Décroissant' as={'a'}
                             />
                     </Menu.Item>
-
-                    <Menu.Item>
-                        <Menu.Header>Hosting</Menu.Header>
-
-                            <Menu.Item
-                                name='shared' as={'a'}
-                            />
-                            <Menu.Item
-                                name='dedicated' as={'a'}
-                            />
-                    </Menu.Item>
-
                 </Menu>
             </Sidebar>
         </Media>

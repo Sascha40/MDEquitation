@@ -15,9 +15,6 @@ import React, { Component } from 'react';
 
 const INITIAL_STATE = {
                     image1: null,
-                    image2: null,
-                    image3: null,
-                    image4: null,
                     name: '',
                     brand: '',
                     reference: '',
@@ -37,38 +34,17 @@ const INITIAL_STATE = {
                     error: false,
                     progress: 0
                 }
+                
 class AddArticle extends Component {
     constructor(props){
         super(props);
         this.state = {...INITIAL_STATE};
-    
     }
 
     onImage1Change = e => {
         if(e.target.files[0]){
             const image1 = e.target.files[0];
             this.setState(() => ({image1}));
-        }
-    } 
-
-    onImage2Change = e => {
-        if(e.target.files[0]){
-            const image2 = e.target.files[0];
-            this.setState(() => ({image2}));
-        }
-    } 
-
-    onImage3Change = e => {
-        if(e.target.files[0]){
-            const image3 = e.target.files[0];
-            this.setState(() => ({image3}));
-        }
-    } 
-
-    onImage4Change = e => {
-        if(e.target.files[0]){
-            const image4 = e.target.files[0];
-            this.setState(() => ({image4}));
         }
     } 
 
@@ -83,10 +59,6 @@ class AddArticle extends Component {
 
     addData = () => {
         const { 
-            image1,
-            image2,
-            image3,
-            image4,
             name,
             brand,
             reference,
@@ -99,9 +71,6 @@ class AddArticle extends Component {
             lenght,
             description,
             url,
-            urlImage2,
-            urlImage3,
-            urlImage4,
             isOnTop,
         } = this.state;
 
@@ -124,16 +93,13 @@ class AddArticle extends Component {
                 addDate: Date.now()
             })
             .catch(error => {
-                this.setState({error: error.message})
+                this.setState({error})
             });
     }
     
 
     onSubmit(event) {
         const { image1,
-                image2,
-                image3,
-                image4,
                 name,
                 brand,
                 reference,
@@ -146,9 +112,6 @@ class AddArticle extends Component {
                 lenght,
                 description,
                 url,
-                urlImage2,
-                urlImage3,
-                urlImage4,
                 isOnTop,
             } = this.state;
 
@@ -164,15 +127,12 @@ class AddArticle extends Component {
             },
             () => {
                 this.props.firebase.storageRef.child(`images/${image1.name}`).getDownloadURL().then(url => {
-                    console.log(url);
                     this.setState({url});
-                    this.addData();
+                    this.addData()
                 })
                 .then(() => this.setState({...INITIAL_STATE}))
             },
-            ); 
-
-        
+            )
 
             event.preventDefault()
     }
@@ -226,30 +186,8 @@ class AddArticle extends Component {
                             label="Image 1 "
                             accept="image/png, image/jpeg"
                             onChange={this.onImage1Change.bind(this)}
-                        />
-                        <Form.Input
-                            size="small"
-                            type="file"
-                            label="Image 2"
-                            accept="image/png, image/jpeg"
-                            onChange={this.onImage2Change.bind(this)}
-                        />
-                        <Form.Input
-                            size="small"
-                            type="file"
-                            label="Image 3"
-                            accept="image/png, image/jpeg"
-                            onChange={this.onImage3Change.bind(this)}
-                        />
-                        <Form.Input
-                            size="small"
-                            type="file"
-                            label="Image 4"
-                            accept="image/png, image/jpeg"
-                            onChange={this.onImage4Change.bind(this)}
-                        />   
+                        />  
                         <Progress percent={this.state.progress} indicating progress/>
-
                         {this.state.error && error.message}         
                         <Button type="submit" 
                                 floated="right" 

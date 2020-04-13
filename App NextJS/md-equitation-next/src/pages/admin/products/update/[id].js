@@ -21,7 +21,8 @@ const INITIAL_STATE = {
     Width: null, 
     Lenght: null,
     Description: '',
-    isOnTop: false
+    isOnTop: false, 
+    urlImage1: null
 }
 
 class UpdateArticle extends React.Component {
@@ -52,18 +53,6 @@ class UpdateArticle extends React.Component {
 
     onChange(event){
         const { article } = this.state;
-        // this.setState({Name: article.map( article => article.Name)})
-        // this.setState({Price: article.map( article => article.Price)})
-        // this.setState({Brand: article.map( article => article.Brand)})
-        // this.setState({CrossedPrice: article.map( article => article.CrossedPrice)})
-        // this.setState({Stock: article.map( article => article.Stock)})
-        // this.setState({Weight: article.map( article => article.Weight)})
-        // this.setState({Height: article.map( article => article.Height)})
-        // this.setState({Width: article.map( article => article.Width)})
-        // this.setState({Lenght: article.map( article => article.Lenght)})
-        // this.setState({Description: article.map( article => article.Description)})
-        // this.setState({isOnTop: article.map( article => article.isOnTop)})
-
         this.setState({[event.target.name]: event.target.value})
     }
 
@@ -86,7 +75,7 @@ class UpdateArticle extends React.Component {
                     Width: Width,
                     Lenght: Lenght,
                     Description: Description,
-                    isOnTop: isOnTop
+                    isOnTop: isOnTop,
                 })
                 .then(this.setState({...INITIAL_STATE}))
                 .catch(error => {
