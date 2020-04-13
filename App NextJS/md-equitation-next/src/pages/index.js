@@ -1,18 +1,20 @@
 import React,{Component, createRef} from 'react';
 import NavBar from "../components/Nav/NavBar";
-import {Sticky, Header, Segment, Container, Grid, Item, Button, Icon, Label} from "semantic-ui-react";
+import {Sticky, Header, Segment, Dimmer, Loader, Container, Grid, Item, Button, Icon, Label, Card} from "semantic-ui-react";
 import Footer from "../components/Layout/Footer";
 import LeftSideBar from "../components/Layout/LeftSideBar";
 import HomeCaroussel from "../components/HomeCaroussel";
 import ArticleCard from "../components/ArticleCard";
 import { Media, MediaContextProvider } from "../media/media";
+import { withFirebase } from "../firebase"
 
-
-export default class Index extends Component{
+class Index extends Component{
     state = {
         animation: 'overlay',
         direction: 'left',
         visible: false,
+        articles: [],
+        loading: false
     }
 
     contextRef = createRef()
@@ -20,15 +22,39 @@ export default class Index extends Component{
     handleAnimation = (animation) => () =>
         this.setState((prevState) => ({ animation, visible: !prevState.visible }))
 
-
+    componentDidMount() {
+        this.setState({ loading: true });
+        this.unsubscribe = this.props.firebase
+            .articles()
+            .onSnapshot(snapshot => {
+                let articles = [];
+                snapshot.forEach(doc =>
+                    articles.push({ ...doc.data(), articleid: doc.id }),
+                );
+                this.setState({
+                    articles,
+                    loading: false
+                    });
+            });
+    }
+        
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
+    
     render()
     {
 
-        const { animation, direction, visible } = this.state
+        const { animation, direction, visible, articles, loading } = this.state
 
 
         return (
             <MediaContextProvider>
+            {loading &&        
+                <Dimmer active inverted>
+                    <Loader size='large'>Chargement</Loader>
+                </Dimmer>
+            }
                 <div ref={this.contextRef}>
                     <Sticky context={this.contextRef}>
                         <LeftSideBar
@@ -44,7 +70,6 @@ export default class Index extends Component{
                     {/* Content */}
                     <Segment basic padded>
                         <Container>
-
                             <HomeCaroussel />
 
                             <Header as={'h2'} className={"mt-3"}>
@@ -54,90 +79,51 @@ export default class Index extends Component{
                             <div className={'mt-3'}>
 
                                 <Media greaterThanOrEqual="lg">
-                                    <Grid columns={4} className={"mx-auto"}>
-                                        <Grid.Column>
-                                            <ArticleCard />
-                                        </Grid.Column>
-                                        <Grid.Column>
-                                            <ArticleCard />
-                                        </Grid.Column>
-                                        <Grid.Column>
-                                            <ArticleCard />
-                                        </Grid.Column>
-                                        <Grid.Column>
-                                            <ArticleCard />
-                                        </Grid.Column>
-                                        <Grid.Column>
-                                            <ArticleCard />
-                                        </Grid.Column>
-                                        <Grid.Column>
-                                            <ArticleCard />
-                                        </Grid.Column>
-                                        <Grid.Column>
-                                            <ArticleCard />
-                                        </Grid.Column>
-                                        <Grid.Column>
-                                            <ArticleCard />
-                                        </Grid.Column>
-                                    </Grid>
+                                    <Card.Group centered>
+                                    {articles.map(article => (
+                                                article.isOnTop && 
+                                                <ArticleCard 
+                                                    image={article.url}
+                                                    name={article.Name}
+                                                    brand={article.Brand}
+                                                    price={`${article.Price}€`}
+                                                    crossedprice={`${article.CrossedPrice}€`}
+                                                />
+                                        ))}
+                                    </Card.Group>
                                 </Media>
 
                                 <Media lessThan="lg">
                                     <Item.Group divided>
-                                        <Item>
-                                            <Item.Image src='https://picsum.photos/300/300' />
-                                            <Item.Content>
-                                                <Item.Header as='a'>My Neighbor Totoro</Item.Header>
-                                                <Item.Meta>
-                                                    <span className='cinema'>IFC Cinema</span>
-                                                </Item.Meta>
-                                                <Item.Description>Un super article détaillé</Item.Description>
-                                                <Item.Extra>
-                                                    <Label>En stock</Label>
-                                                    <Button className={"btn-shop"} floated='right'>
-                                                        <Icon name='add to cart' /> Ajouter au panier
-                                                    </Button>
-
-                                                </Item.Extra>
-                                            </Item.Content>
-                                        </Item>
-                                        <Item>
-                                            <Item.Image src='https://picsum.photos/300/300' />
-
-                                            <Item.Content>
-                                                <Item.Header as='a'>My Neighbor Totoro</Item.Header>
-                                                <Item.Meta>
-                                                    <span className='cinema'>IFC Cinema</span>
-                                                </Item.Meta>
-                                                <Item.Description>Un super article détaillé</Item.Description>
-                                                <Item.Extra>
-                                                    <Label>En stock</Label>
-                                                    <Button className={"btn-shop"} floated='right'>
-                                                        <Icon name='add to cart' /> Ajouter au panier
-                                                    </Button>
-
-                                                </Item.Extra>
-                                            </Item.Content>
-                                        </Item>
-                                        <Item>
-                                            <Item.Image src='https://picsum.photos/300/300' />
-
-                                            <Item.Content>
-                                                <Item.Header as='a'>My Neighbor Totoro</Item.Header>
-                                                <Item.Meta>
-                                                    <span className='cinema'>IFC Cinema</span>
-                                                </Item.Meta>
-                                                <Item.Description>Un super article détaillé</Item.Description>
-                                                <Item.Extra>
-                                                    <Label>En stock</Label>
-                                                    <Button className={"btn-shop"} floated='right'>
-                                                        <Icon name='add to cart' /> Ajouter au panier
-                                                    </Button>
-
-                                                </Item.Extra>
-                                            </Item.Content>
-                                        </Item>
-
+                                        {articles.map(article => (
+                                            <Item key={article.articleid}>
+                                                <Item.Image src='https://picsum.photos/300/300' />
+                                                <Item.Content>
+                                                    <Item.Header as='a'>{article.Name}</Item.Header>
+                                                    <Item.Meta>
+                                                        <span className='cinema'>{article.Brand}</span>
+                                                    </Item.Meta>
+                                                    <Item.Description>{article.Description}</Item.Description>
+                                                    <div>
+                                                        <h2 style={{color:"rgb(143, 94, 58)"}}>{article.Price}€
+                                                            <h5 style={{color:"black"}}>
+                                                                <del>{article.CrossedPrice}€</del>
+                                                            </h5>
+                                                        </h2>
+                                                        
+                                                    </div>
+                                                    
+                                                    <Item.Extra>
+                                                        <Label>En stock</Label>
+                                                        <Button className={"btn-shop"} floated='right'>
+                                                            <Icon name='add to cart' /> Ajouter au panier
+                                                        </Button>
+                                                    </Item.Extra>
+                                                </Item.Content>
+                                            </Item>
+                                        ))}
+                                        
+                                        
                                     </Item.Group>
                                 </Media>
                             </div>
@@ -151,3 +137,6 @@ export default class Index extends Component{
         );
     }
 }
+
+
+export default withFirebase(Index);

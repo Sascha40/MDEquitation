@@ -18,13 +18,9 @@ const LeftSideBar = ({ animation, direction, visible }) => (
             >
                 <Menu vertical secondary style={{width: "100%", padding:"20px"}}>
                     <Menu.Item>
-                        <Menu.Header>Produits</Menu.Header>
-                            <Menu.Item
-                                name='Tous les articles' as={'a'}
-                            />
-                            <Menu.Item
-                                name='Catégories' as={'a'}
-                            />
+                        <Menu.Header>MDEquitation</Menu.Header>
+                            <Menu.Item as='a'>Voir les articles</Menu.Item>
+                            <Menu.Item as='a'>Nos catégories</Menu.Item>
                     </Menu.Item>
 
                     <Menu.Item>

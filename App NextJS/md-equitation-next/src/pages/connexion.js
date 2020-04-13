@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Footer from "../components/Layout/Footer";
 import SignInForm from "../components/SignIn/SignInForm"
 import { withFirebase } from "../firebase"
-import { compose } from "recompose";
 
 
 const Connexion = () => (

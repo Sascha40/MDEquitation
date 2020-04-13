@@ -3,7 +3,7 @@ import {Button, Form, Input, Segment, Label, Popup} from 'semantic-ui-react';
 import Router from "next/router";
 import FormIsValidModal from './FormIsValidModal';
 import { Media } from "../../media/media";
-
+import * as ROLES from '../../constants/roles';
 
 class SignUpFormBase extends React.Component {
     constructor(props){
@@ -74,7 +74,7 @@ class SignUpFormBase extends React.Component {
             this.setState({ errorEmailAlreadyUsed: false});
         }
     }
-
+    
     validateEmail = (email) => {
         let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
@@ -95,27 +95,38 @@ class SignUpFormBase extends React.Component {
 
 
     onSubmit(event) {
+        const { firstName, lastName, email, password, password2} = this.state;
         if (this.validateEmail(this.state.email) === false){
             this.setState({ errorEmail: true});
             return;
         }
 
-        if (this.validatePasswordLenght(this.state.password) === false){
+        if (this.validatePasswordLenght(password) === false){
             this.setState({ errorPasswordLenght: true});
             return;
         }
 
-        if (this.validatePasswordMatch(this.state.password, this.state.password2) === false){
+        if (this.validatePasswordMatch(password, password2) === false){
             this.setState({ errorPasswordDontMatch: true});
             return;
         }
+      
 
         this.props.firebase
-            .doCreateUserWithEmailAndPassword(this.state.email, this.state.password)
+            .doCreateUserWithEmailAndPassword(email, password)
+            .then(authUser => {
+                return this.props.firebase
+                    .user(authUser.user.uid)
+                    .set({
+                        firstName,
+                        lastName,
+                        email,
+                    });
+            })
             .then(showmodal =>{
                 this.setState({modalOpen: true})
                 })
-            .then(authUser => {
+            .then(() => {
                 this.setState({firstName: '', lastName: ''})
             })
             .catch(error => {
@@ -131,7 +142,6 @@ class SignUpFormBase extends React.Component {
             });
     
     event.preventDefault();
-
     };
 
     render() {
@@ -146,7 +156,7 @@ class SignUpFormBase extends React.Component {
             errorPasswordDontMatch,
             errorPasswordLenght, 
             errorEmailAlreadyUsed, 
-            errorCaptcha
+            errorCaptcha,
         } = this.state;
 
         const isDisabled =
@@ -243,9 +253,7 @@ class SignUpFormBase extends React.Component {
                                     onChange={this.onChange}
                                     required
                                     />
-                            <div style={{marginLeft: "18px"}}>
-                                
-                            </div>  
+                                    
                             <Popup
                                 trigger={<Button type="submit"
                                                 color='brown'
@@ -271,6 +279,7 @@ class SignUpFormBase extends React.Component {
                                             onClose={this.handleModalClose}
                                             userEmail={this.state.email}
                                             />
+                                        
             </div>
         )
     }

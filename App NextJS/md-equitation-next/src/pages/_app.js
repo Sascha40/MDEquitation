@@ -3,10 +3,12 @@ import "../media/styles.css";
 import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
-import Firebase, { FirebaseContext } from '../firebase';
+import { withAuthentication } from '../session';
+import { withFirebaseProvider } from '../firebase'
+import { compose } from "recompose";
 
 
-export default class MyApp extends App {
+class MyApp extends App {   
     static async getInitialProps({ Component, router, ctx }) {
         let pageProps = {};
 
@@ -33,13 +35,8 @@ export default class MyApp extends App {
                     <link rel="stylesheet"
                           href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
                 </Head>
-                
-                    <FirebaseContext.Provider value={new Firebase()}>
-                        <Component {...pageProps} />
-                    </FirebaseContext.Provider>
 
-                
-                
+                    <Component {...pageProps}/>
 
                 <style global jsx>
                     {
@@ -54,3 +51,6 @@ export default class MyApp extends App {
         );
     }
 }
+
+const MyAppWithAuth = compose(withFirebaseProvider, withAuthentication)(MyApp)
+export default MyAppWithAuth;

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Form, Input, Segment, Loader, Message} from 'semantic-ui-react'
 import Router from 'next/router';
-
+import Link from "next/link"
 
 class SignInForm extends React.Component {
     constructor(props) {
@@ -31,7 +31,7 @@ class SignInForm extends React.Component {
             this.setState({email:'', password: '', error: '', errorMessage: '', chargement: true });
           })
           .then(() =>{
-            Router.push("/compte");
+            Router.push("/");
           })
           .catch(error => {
             this.setState({ errorSubmit: true});
@@ -87,7 +87,7 @@ class SignInForm extends React.Component {
                                     onChange={this.onChange}
                                 />
                                  {errorSubmit &&  <Message floating color='brown'>{errorMessage}</Message>}
-                                <a href={"http://www.google.com"} style={{color: "gray"}}>Mot de passe ou Identifiant oublié ?</a>
+                                <Link href="/reinitialisermotdepasse"><a style={{color: "gray"}}>Mot de passe ou Identifiant oublié ?</a></Link>
                                 
                                 <Button color='brown' 
                                         type="submit" 

@@ -23,6 +23,7 @@ class NavBar extends Component {
         const nav = {
             boxShadow: "0 10px 30px -10px rgba(0,0,0,0.1)",
             width: "100vw !important",
+            maxWidth: "100vw !important"
         }
         const {activeItem} = this.state
         return (
@@ -71,7 +72,7 @@ class NavBar extends Component {
                                     <Menu.Item className="mr-2">
                                         <AccountNav/>
                                     </Menu.Item>
-                                    <div className="mr-2 my-auto">
+                                    <div className="mr-3 my-auto">
                                         <CartNav/>
                                     </div>
                                 </Menu.Menu>
@@ -84,6 +85,7 @@ class NavBar extends Component {
                         <nav style={{
                             backgroundColor: "white",
                             width: "100vw !important",
+                            maxWidth: "100vw !important",
                             zIndex: "900",
                             position: "sticky"
                         }}>
@@ -126,9 +128,9 @@ class NavBar extends Component {
                         </nav>
                     </Media>
 
-                    {/*MOBILE*/}
-                    <Media lessThan="lg">
-                        <nav style={{backgroundColor: "white", width: "100vw !important", maxWidth: "100vw"}}>
+                    {/*MOBILE Large*/}
+                    <Media at="md">
+                        <nav style={{backgroundColor: "white", width: "100vw !important", maxWidth: "100vw !important"}}>
                             <Menu borderless={true} secondary={true} className="nav-height" style={nav}>
                                 <Menu.Menu position='left' className="nav-items">
                                     <div className="ml-1 my-auto ">
@@ -171,7 +173,60 @@ class NavBar extends Component {
                                     </Menu.Item>
                                 </div>
                                 <Menu.Menu className="nav-items">
-                                    <div className={"mr-1 my-auto"}>
+                                    <div className={"mr-2 my-auto"}>
+                                        <CartNav/>
+                                    </div>
+                                </Menu.Menu>
+                            </Menu>
+                        </nav>
+                    </Media>
+
+                    {/*MOBILE Large*/}
+                    <Media at="sm">
+                        <nav style={{backgroundColor: "white", width: "100vw !important", maxWidth: "100vw !important",}}>
+                            <Menu borderless={true} secondary={true} className="nav-height" style={nav}>
+                                <Menu.Menu position='left' className="nav-items">
+                                    <div className="ml-1 my-auto ">
+                                        <Dropdown
+                                            icon='bars'
+                                            button
+                                            className='icon'
+                                        >
+                                            <Dropdown.Menu className={"mt-2"} style={{width: '97.5vw'}}>
+                                                <Dropdown.Header content='🎉 Bienvenue Elie Dupré'/>
+                                                <Dropdown.Divider/>
+                                                <Dropdown.Item><Icon name={"user"}/> Mon Compte</Dropdown.Item>
+                                                <Dropdown.Item><Icon name={"settings"}/> Paramètres</Dropdown.Item>
+                                                <Dropdown.Item><Icon name={"sign out"}/> Déconnexion</Dropdown.Item>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    </div>
+                                    <div className="mx-auto my-auto">
+                                        <Dropdown
+                                            icon='search'
+                                            button
+                                            simple
+                                            className='icon'
+                                        >
+                                            <Dropdown.Menu className={"mt-2"} style={{width: "84vw"}}>
+                                                <Form>
+                                                    <Form.Input icon={{name: 'search', link: true}} size={"large"}
+                                                                placeholder={"Rechercher..."}/>
+                                                </Form>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+
+                                    </div>
+                                </Menu.Menu>
+                                <div className="mx-auto my-auto">
+                                    <Menu.Item active={activeItem === 'logout'} onClick={this.handleItemClick}>
+                                        <Image src={"/horse.png"} size={'mini'} alt={"Logo MDEquitation"}/>
+                                        <h1><span className="capital-color">MD</span><span
+                                            className="minimal-color">Equitation</span></h1>
+                                    </Menu.Item>
+                                </div>
+                                <Menu.Menu className="nav-items">
+                                    <div className={"mr-2 my-auto"}>
                                         <CartNav/>
                                     </div>
                                 </Menu.Menu>
@@ -181,7 +236,7 @@ class NavBar extends Component {
 
                     {/*XS MOBILE*/}
                     <Media lessThan="sm">
-                        <nav style={{backgroundColor: "white", width: "100vw !important", maxWidth: "100vw"}}>
+                        <nav style={{backgroundColor: "white", width: "100vw !important", maxWidth: "100vw !important",}}>
                             <Menu borderless={true} secondary={true} className="nav-height" style={nav}>
                                 <Menu.Menu position='left' className="nav-items">
                                     <div className="ml-1 my-auto ">
@@ -221,7 +276,7 @@ class NavBar extends Component {
                                         className="minimal-color">Equitation</span></a></h1>
                                 </div>
                                 <Menu.Menu className="nav-items">
-                                    <div className={"mr-1 my-auto"}>
+                                    <div className={"mr-2 my-auto"}>
                                         <CartNav/>
                                     </div>
                                 </Menu.Menu>

@@ -43,7 +43,6 @@ class CartNav extends Component {
     render() {
         return (
             <div onMouseEnter={this.handleMouseHover} onMouseLeave={this.handleMouseHover}>
-                {/*<Label as='a' size={"small"} color={"teal"} style={position} className="margin-cart">10</Label>*/}
                 <a style={position} className="margin-cart"
                    href={"http://www.google.fr"}> 10 </a>
                 <Image style={width} src={"/cart.png"} as={'a'}  href={"http://www.google.fr"}
@@ -136,7 +135,7 @@ class CartNav extends Component {
                                 </Header>
                             </Table.Cell>
                             <Table.Cell textAlign='center'>
-                                <Button animated='vertical' color={"brown"}>
+                                <Button circular animated='vertical' color={"brown"}>
                                     <Button.Content hidden>Voir le panier</Button.Content>
                                     <Button.Content visible>
                                         + 7 autres...
@@ -148,13 +147,6 @@ class CartNav extends Component {
                     </Table>
 
                 </Media>
-
-
-
-
-
-
-
                 }
             </div>
         )

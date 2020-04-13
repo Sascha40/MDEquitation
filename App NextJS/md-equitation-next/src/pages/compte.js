@@ -1,13 +1,18 @@
 import React, {Component, createRef} from 'react';
 import NavBar from "../components/Nav/NavBar";
-import {Sticky, Menu, Container, Header, Button, Icon, Responsive, Segment} from "semantic-ui-react";
+import {Sticky, Menu, Container, Header, Button, Icon, Image, Segment} from "semantic-ui-react";
 import LeftSideBar from "../components/Layout/LeftSideBar";
 import Footer from "../components/Layout/Footer";
 import faker from 'faker';
 import Orders from "../components/Account/Orders";
+import Parameters from '../components/Account/Parameters';
 import SignOutButton from '../components/SignOut/SignOutButton';
+import { withAuthorization, withAuthentication, AuthUserContext } from '../session';
+import { Media } from '../media/media';
+import { useRouter } from 'next/router';
 
 
+  
 class Compte extends Component {
     state = {
         animation: 'overlay',
@@ -25,28 +30,15 @@ class Compte extends Component {
     handleItemClick = (e, { name }) =>
         this.setState({activeItem: name})
 
-
     render()
     {
-
         const { animation, direction, visible,
             activeItem } = this.state
-
-        let displayedMenu;
-
-        if(activeItem === 'Mes Commandes') {
-            displayedMenu = <Orders/>;
-        }
-        else if(activeItem === 'Mes Coupons') {
-            displayedMenu = <div>Yala</div>;
-        }
-        else if(activeItem === 'Mes Paramètres') {
-            displayedMenu = <div>Youhou</div>;
-        }
-
-
         return (
             <div>
+            <AuthUserContext.Consumer>
+                {authUser => (
+                
                 <div ref={this.contextRef}>
 
                     <Sticky context={this.contextRef}>
@@ -69,63 +61,65 @@ class Compte extends Component {
                                         style={{fontSize:"2em"}}/>
 
                                 <Header as='h3'
-                                        content={faker.name.findName()}
                                         floated={"right"}
                                         dividing
-                                        icon={"user circle"}
                                         style={{marginTop:'10px'}}
-                                />
+                                ><Image avatar size="small" src="/user.png" />{authUser.firstName + ' ' + authUser.lastName}</Header>
                             </Segment>
-                                <Responsive minWidth={960}>
+                            
                                     <Menu pointing secondary>
                                         <Menu.Item
                                             name='Mes Commandes'
                                             active={activeItem === 'Mes Commandes'}
-                                            icon={'box'}
                                             onClick={this.handleItemClick}
-                                        />
-                                        <Menu.Item
-                                            name='Mes Coupons'
-                                            active={activeItem === 'Mes Coupons'}
-                                            icon={'tags'}
-                                            onClick={this.handleItemClick}
-                                        />
+                                        >
+                                            <Media greaterThanOrEqual="md">
+                                                <Icon name="box"/>
+                                            </Media> Mes Commandes
+                                        </Menu.Item>
                                         <Menu.Item
                                             name='Mes Paramètres'
                                             active={activeItem === 'Mes Paramètres'}
-                                            icon={'wrench'}
                                             onClick={this.handleItemClick}
-                                        />
-                                        <Menu.Menu position='right'>
-                                            <Menu.Item
-                                                name='Déconnexion'
-                                                active={activeItem === 'Déconnexion'}
-                                                onClick={this.handleItemClick}
-                                            >
-                                            <SignOutButton/>
-                                            </Menu.Item>
-                                        </Menu.Menu>
+                                        >   <Media greaterThanOrEqual="md">
+                                                <Icon name="box"/>
+                                            </Media> Mes Paramètres
+                                        </Menu.Item>
+                                            <Menu.Menu position='right'>
+                                            <Media greaterThanOrEqual="md">
+                                                <Menu.Item
+                                                    name='Déconnexion'
+                                                    active={activeItem === 'Déconnexion'}
+                                                    onClick={this.handleItemClick}
+                                                >
+                                                <SignOutButton/>
+                                                </Menu.Item>
+                                            </Media>
+                                            </Menu.Menu>
                                     </Menu>
                                     <div className={"mt-2"}>
-                                        {displayedMenu}
+                                                <div>
+                                                {activeItem === 'Mes Commandes' && <Orders/>}
+                                                {activeItem === 'Mes Paramètres' && 
+                                                    <Parameters firstName={authUser.firstName} 
+                                                                lastName={authUser.lastName}
+                                                                email={authUser.email}
+
+                                                            />}
+                                                </div>
                                     </div>
-
-                                </Responsive>
-                            </div>
+                        </div>
                     </Container>
-
-
-
-
-
-
-
-
                     <Footer/>
                 </div>
-            </div>
+                )
+    }
+</AuthUserContext.Consumer>
+        </div>
         );
     }
 }
 
-export default Compte;
+const condition = authUser => authUser !== null
+
+export default withAuthorization(condition)(Compte);
