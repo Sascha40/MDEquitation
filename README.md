@@ -22,6 +22,10 @@ Pages du sites au 4 avril
  ![alt text](https://github.com/Sascha40/MDEquitation/blob/master/images/9.png)
  
   * Connexion/Inscription
- ![alt text](https://github.com/Sascha40/MDEquitation/blob/master/images/7.png)
- ![alt text](https://github.com/Sascha40/MDEquitation/blob/master/images/8.png)
- ![alt text](https://github.com/Sascha40/MDEquitation/blob/master/images/9.png)
+ ![alt text](https://github.com/Sascha40/MDEquitation/blob/master/images/10.png)
+ ![alt text](https://github.com/Sascha40/MDEquitation/blob/master/images/11.png)
+ ![alt text](https://github.com/Sascha40/MDEquitation/blob/master/images/12.png)
+ ![alt text](https://github.com/Sascha40/MDEquitation/blob/master/images/13.png)
+ ![alt text](https://github.com/Sascha40/MDEquitation/blob/master/images/14.png)
+ 
+ La fonction reinitialiser le mot passe est fonctionnelle
