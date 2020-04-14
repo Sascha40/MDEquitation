@@ -13,10 +13,8 @@ const HomeCaroussel = () => (
                            play={true}
                            cancelOnInteraction={false}
                            interval={6000}>
-                <div><Image src={"https://picsum.photos/id/1/1200/600"}/></div>
-                <div style={{backgroundColor:"lightgray"}}><Image src={"https://picsum.photos/id/2/1200/600"}/></div>
-                <div style={{backgroundColor:"lightgray"}}><Image src={"https://picsum.photos/id/3/1200/600"}/></div>
-                <div style={{backgroundColor:"lightgray"}}><Image src={"https://picsum.photos/id/4/1200/600"}/></div>
+                <div><Image src={"/chevaux.png"}/></div>
+                <div style={{backgroundColor:"lightgray"}}><Image src={"/chevaux2.png"}/></div>
             </AutoplaySlider>
        </Media>
     </MediaContextProvider>

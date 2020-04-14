@@ -9,16 +9,6 @@ import { Media, MediaContextProvider } from "../media/media";
 import { withFirebase } from "../firebase";
 import Link from 'next/link'
 
-
-const PostLink = props => (
-    <li>
-      <Link href="/article/[id]" as={`/article/${props.id}`}>
-        <a>{props.id}</a>
-      </Link>
-    </li>
-  );
-
-
 class Index extends Component{
     state = {
         animation: 'overlay',
@@ -94,7 +84,7 @@ class Index extends Component{
                                     {articles.map(article => (
                                                 article.isOnTop && 
                                                     <ArticleCard 
-                                                        LinkName={article.Name}
+                                                        LinkName={article.articleid}
                                                         image={article.url}
                                                         name={article.Name}
                                                         brand={article.Brand}
@@ -108,8 +98,9 @@ class Index extends Component{
                                 <Media lessThan="lg">
                                     <Item.Group divided>
                                         {articles.map(article => (
-                                            <Item key={article.articleid}>
-                                                <Item.Image src='https://picsum.photos/300/300' />
+                                            <Link href="/article/[id]" as={`/article/${article.articleid}`}>
+                                            <Item as='a' key={article.articleid}>
+                                                <Item.Image src={article.url} />
                                                 <Item.Content>
                                                     <Item.Header as='a'>{article.Name}</Item.Header>
                                                     <Item.Meta>
@@ -133,6 +124,7 @@ class Index extends Component{
                                                     </Item.Extra>
                                                 </Item.Content>
                                             </Item>
+                                            </Link>
                                         ))}
                                         
                                         

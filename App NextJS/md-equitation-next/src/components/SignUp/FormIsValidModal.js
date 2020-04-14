@@ -8,7 +8,6 @@ class FormIsValidModal extends React.Component{
         super(props);
     }
 
-    email = this.props.userEmail
     render(){
     return (
         <Modal
@@ -20,7 +19,7 @@ class FormIsValidModal extends React.Component{
                 <Header icon='checkmark' color="green" content='Bienvenue chez MDEquitation !' />
                 <Modal.Content>
                     <p style={{fontSize: '1.1rem', textAlign: 'center'}}>
-                    Un email à été envoyé à : <span style={{margin: '0', fontWeight: '700'}}>{this.email}</span> <br/>                    
+                    Un email à été envoyé ! <br/>                    
                     Alors checkez votre boite mail <Icon name="send" color="grey"/><br/>
                     Valider votre addresse mail sur le lien que nous vous avons envoyé pour finaliser votre inscription.
                     </p>

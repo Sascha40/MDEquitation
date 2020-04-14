@@ -90,12 +90,14 @@ class NavBar extends Component {
                             position: "sticky"
                         }}>
                             <Menu borderless={true} secondary={true} className="nav-height" style={nav}>
-                                <Menu.Item header={true} active={activeItem === 'logout'} className="nav-header"
-                                           onClick={this.handleItemClick}>
-                                    <Image src={"/horse.png"} size={'mini'} alt={"Logo MDEquitation"}/>
-                                    <h1><span className="capital-color">MD</span><span
-                                        className="minimal-color">Equitation</span></h1>
-                                </Menu.Item>
+                                <Link href="/">
+                                    <Menu.Item header={true} active={activeItem === 'logout'} className="nav-header"
+                                            onClick={this.handleItemClick}>
+                                        <Image src={"/horse.png"} size={'mini'} alt={"Logo MDEquitation"}/>
+                                        <h1><span className="capital-color">MD</span><span
+                                            className="minimal-color">Equitation</span></h1>
+                                    </Menu.Item>
+                                </Link>
                                 <div className={"my-auto ml-1"} style={{borderRadius: "20px"}}
                                      onClick={this.changeButtonIcon}>
                                     <Button
@@ -166,11 +168,13 @@ class NavBar extends Component {
                                     </div>
                                 </Menu.Menu>
                                 <div className="mx-auto my-auto">
+                                <Link href="/">
                                     <Menu.Item active={activeItem === 'logout'} onClick={this.handleItemClick}>
                                         <Image src={"/horse.png"} size={'mini'} alt={"Logo MDEquitation"}/>
                                         <h1><span className="capital-color">MD</span><span
                                             className="minimal-color">Equitation</span></h1>
                                     </Menu.Item>
+                                </Link>
                                 </div>
                                 <Menu.Menu className="nav-items">
                                     <div className={"mr-2 my-auto"}>
@@ -219,11 +223,13 @@ class NavBar extends Component {
                                     </div>
                                 </Menu.Menu>
                                 <div className="mx-auto my-auto">
+                                <Link href="/">
                                     <Menu.Item active={activeItem === 'logout'} onClick={this.handleItemClick}>
                                         <Image src={"/horse.png"} size={'mini'} alt={"Logo MDEquitation"}/>
                                         <h1><span className="capital-color">MD</span><span
                                             className="minimal-color">Equitation</span></h1>
                                     </Menu.Item>
+                                </Link>
                                 </div>
                                 <Menu.Menu className="nav-items">
                                     <div className={"mr-2 my-auto"}>
