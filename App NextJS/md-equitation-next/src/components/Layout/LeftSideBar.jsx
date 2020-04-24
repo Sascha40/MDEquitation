@@ -1,7 +1,8 @@
-import { Menu, Responsive, Sidebar } from 'semantic-ui-react';
+import { Menu, Responsive, Sidebar, Icon } from 'semantic-ui-react';
 import { MediaContextProvider, Media } from '../../media/media';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Link from 'next/link';
 
 const LeftSideBar = ({ animation, direction, visible }) => (
   <MediaContextProvider>
@@ -18,11 +19,31 @@ const LeftSideBar = ({ animation, direction, visible }) => (
           backgroundColor: 'white',
         }}
       >
-        <Menu vertical secondary style={{ width: '100%', padding: '20px' }}>
-          <Menu.Item>
-            <Menu.Header>MDEquitation</Menu.Header>
-            <Menu.Item as="a">Voir les articles</Menu.Item>
-            <Menu.Item as="a">Nos catégories</Menu.Item>
+        <Menu
+          vertical
+          secondary
+          style={{ width: '100%', paddingLeft: '10px', paddingTop: '10px' }}
+        >
+          <Menu.Item style={{ textAlign: 'left' }}>
+            <Link href="/">
+              <Menu.Item as="a">
+                <div style={{ fontWeight: 'bold' }}>
+                  <Icon name="home" className="greenColor"/> Accueil
+                </div>
+              </Menu.Item>
+            </Link>
+            <Menu.Item as="a">
+              <div style={{ fontWeight: 'bold' }}>
+                <Icon name="tags" className="greenColor"/> Nos Articles
+              </div>
+            </Menu.Item>
+            <Link href="/categories">
+              <Menu.Item as="a">
+                <div style={{ fontWeight: 'bold' }}>
+                  <Icon name="block layout" className="greenColor" /> Nos Catégories
+                </div>
+              </Menu.Item>
+            </Link>
           </Menu.Item>
 
           <Menu.Item>

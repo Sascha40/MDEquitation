@@ -19,16 +19,16 @@ const INITIAL_STATE = {
   article: [],
   Name: '',
   Brand: '',
-  Price: null,
-  CrossedPrice: null,
-  Stock: null,
-  Weight: null,
-  Height: null,
-  Width: null,
-  Lenght: null,
+  Price: '',
+  CrossedPrice: '',
+  Stock: '',
+  Weight: '',
+  Height: '',
+  Width: '',
+  Lenght: '',
   Description: '',
-  isOnTop: false,
-  urlImage1: null,
+  isOnTop: '',
+  urlImage1: '',
 };
 
 class UpdateArticle extends React.Component {
@@ -53,13 +53,28 @@ class UpdateArticle extends React.Component {
           this.setState({ article });
         }
       })
+      .then(() => {
+        article = this.state.article
+        this.setState({
+          Name: article[0].Name,
+          Brand: article[0].Brand,
+          Price: article[0].Price,
+          CrossedPrice: article[0].CrossedPrice,
+          Stock: article[0].Stock,
+          Weight: article[0].Weight,
+          Height: article[0].Height,
+          Width: article[0].Width,
+          Lenght: article[0].Lenght,
+          Description: article[0].Description,
+          isOnTop: article[0].isOnTop,
+        })
+      })
       .catch((error) => {
         this.setState(error);
       });
   }
 
   onChange(event) {
-    const { article } = this.state;
     this.setState({ [event.target.name]: event.target.value });
   }
 
@@ -80,10 +95,11 @@ class UpdateArticle extends React.Component {
       Lenght,
       Description,
       isOnTop,
-    } = this.state;
+    } = this.state
+
     this.props.firebase
       .article(this.props.router.query.id)
-      .set({
+      .update({
         Name: Name,
         Brand: Brand,
         Price: Price,
@@ -96,7 +112,9 @@ class UpdateArticle extends React.Component {
         Description: Description,
         isOnTop: isOnTop,
       })
-      .then(this.setState({ ...INITIAL_STATE }))
+      .then(() => {
+        alert("Article Modifié")
+      })
       .catch((error) => {
         this.setState({ error });
       });
@@ -104,8 +122,6 @@ class UpdateArticle extends React.Component {
   }
 
   render() {
-    const article = this.state.article;
-    const actualValue = 'Valeur actuelle : ';
     const {
       Name,
       Brand,
@@ -128,104 +144,85 @@ class UpdateArticle extends React.Component {
             Modifier un article
             <Header.Subheader className="mt-1">
               <Link href="/admin/products">
-                <Button content="Retour" icon="left arrow" />
+                <Button circular content="Retour" icon="left arrow" />
               </Link>
               <Divider hidden />
             </Header.Subheader>
           </Header>
           <Form onSubmit={this.onSubmit}>
             <Form.Input
-              label={actualValue + article.map((article) => article.Name)}
-              placeholder="Nom de l'article"
+              label="Nom de l'article"
               onChange={this.onChange}
               value={Name}
               name="Name"
             />
             <Form.Input
-              label={actualValue + article.map((article) => article.Brand)}
-              placeholder="Marque"
+              label='Marque'
               value={Brand}
               onChange={this.onChange}
               name="Brand"
             />
             <Form.Input
-              label={
-                actualValue + article.map((article) => article.Price) + '€'
-              }
-              placeholder="Prix TTC"
+              label="Prix TTC"
               value={Price}
               onChange={this.onChange}
               name="Price"
             />
             <Form.Input
-              label={
-                actualValue +
-                article.map((article) => article.CrossedPrice) +
-                '€'
-              }
-              placeholder="Prix barré TTC"
+              label="Prix barré TTC"
               value={CrossedPrice}
               name="CrossedPrice"
               onChange={this.onChange}
             />
             <Form.Input
-              label={actualValue + article.map((article) => article.Stock)}
-              placeholder="Stock"
+              label="Stock"
               value={Stock}
               onChange={this.onChange}
               name="Stock"
             />
             <Form.Input
-              label={actualValue + article.map((article) => article.Weight)}
-              placeholder="Poids en kg"
+              label="Poids en kg"
               value={Weight}
               onChange={this.onChange}
               name="Weight"
             />
             <Form.Input
-              label={actualValue + article.map((article) => article.Height)}
-              placeholder="Hauteur en cm"
+              label="Hauteur en cm"
               value={Height}
               onChange={this.onChange}
               name="Height"
             />
             <Form.Input
-              label={actualValue + article.map((article) => article.Width)}
-              placeholder="Largeur en cm"
+              label="Largeur en cm"
               value={Width}
               onChange={this.onChange}
               name="Width"
             />
             <Form.Input
-              label={actualValue + article.map((article) => article.Lenght)}
-              placeholder="Profondeur en cm"
+              label="Profondeur en cm"
               value={Lenght}
               onChange={this.onChange}
               name="Lenght"
             />
             <Form.Input
-              label={
-                actualValue + article.map((article) => article.Description)
-              }
-              placeholder="Description"
+              label="Description"
               value={Description}
               onChange={this.onChange}
               name="Description"
             />
             <Form.Checkbox
-              label={`Page d'accueil : ${article.map(
-                (article) => article.isOnTop,
-              )}`}
+              label="Page d'accueil"
               name="isOnTop"
               value={isOnTop}
+              checked={isOnTop}
               onChange={this.onCheckboxChange}
             />
             <Button
               type="submit"
               color="yellow"
               content="Modifier"
+              circular
               icon="pencil"
-              labelPosition="right"
               floated="right"
             />
             {error && error.message}

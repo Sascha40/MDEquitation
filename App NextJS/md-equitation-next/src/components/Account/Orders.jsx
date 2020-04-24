@@ -65,7 +65,7 @@ class Orders extends Component {
               </Table.Cell>
               <Table.Cell warning>En attente de validation</Table.Cell>
               <Table.Cell textAlign="right">
-                <Button>Détails</Button>
+                <Button circular>Détails</Button>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -108,7 +108,7 @@ class Orders extends Component {
               </Table.Cell>
               <Table.Cell positive>Livrée</Table.Cell>
               <Table.Cell textAlign="right">
-                <Button>Détails</Button>
+                <Button circular>Détails</Button>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -151,7 +151,7 @@ class Orders extends Component {
               </Table.Cell>
               <Table.Cell negative>Suspendu</Table.Cell>
               <Table.Cell textAlign="right">
-                <Button>Détails</Button>
+                <Button circular>Détails</Button>
               </Table.Cell>
             </Table.Row>
           </Table.Body>

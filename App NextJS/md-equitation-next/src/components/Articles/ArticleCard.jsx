@@ -1,17 +1,23 @@
-import React, { Children } from 'react';
+import React, { useState } from 'react';
 import { Card, Icon, Image, Rating, Button, Label } from 'semantic-ui-react';
 import Link from 'next/link';
 
 export const ArticleCard = (props) => {
+  const [articleId, setArticleId] = useState(props.LinkName)
   return (
-    <Link href="/article/[id]" as={`/article/${props.LinkName}`}>
-      <Card as="a" raised style={{ maxWidth: '260px' }}>
-        <Image
+    <Link href="/article2/[id]" as={`/article2/${articleId}`}>
+      <Card
+        as="a"
+        raised
+        style={{
+          maxWidth: '260px',
+          boxShadow:
+            'rgb(238, 238, 238) 0px 0px 0px 1px, rgba(34, 36, 38, 0.12) 0px 2px 4px 0px, rgba(34, 36, 38, 0.15) 0px 2px 10px 0px',
+        }}
+      >
+        <img
           src={props.image}
-          size="medium"
-          style={{ minHeight: '260px', maxHeight: '260px' }}
-          wrapped
-          ui={false}
+          style={{ objectFit: 'cover', minHeight: '260px', maxHeight: '260px' }}
         />
 
         <Card.Content>

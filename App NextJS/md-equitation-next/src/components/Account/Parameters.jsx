@@ -53,7 +53,7 @@ class Parameters extends React.Component {
                   </Header>
                 </Table.Cell>
                 <Table.Cell textAlign="right">
-                  <Button icon="pencil" content="Modifier" />
+                  <Button circular icon="pencil" content="Modifier" />
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
@@ -66,7 +66,7 @@ class Parameters extends React.Component {
                   </Header>
                 </Table.Cell>
                 <Table.Cell textAlign="right">
-                  <Button icon="pencil" content="Modifier" />
+                  <Button circular icon="pencil" content="Modifier" />
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
@@ -79,7 +79,7 @@ class Parameters extends React.Component {
                   </Header>
                 </Table.Cell>
                 <Table.Cell textAlign="right">
-                  <Button icon="pencil" content="Modifier" />
+                  <Button circular icon="pencil" content="Modifier" />
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
@@ -92,7 +92,7 @@ class Parameters extends React.Component {
                   </Header>
                 </Table.Cell>
                 <Table.Cell textAlign="right">
-                  <Button icon="pencil" content="Modifier" />
+                  <Button circular icon="pencil" content="Modifier" />
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
@@ -105,7 +105,7 @@ class Parameters extends React.Component {
                   </Header>
                 </Table.Cell>
                 <Table.Cell textAlign="right">
-                  <Button icon="pencil" content="Modifier" />
+                  <Button circular icon="pencil" content="Modifier" />
                 </Table.Cell>
               </Table.Row>
             </Table.Body>

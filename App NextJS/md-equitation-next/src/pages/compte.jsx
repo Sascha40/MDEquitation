@@ -5,24 +5,17 @@ import {
   Menu,
   Container,
   Header,
-  Button,
   Icon,
   Image,
   Segment,
 } from 'semantic-ui-react';
 import LeftSideBar from '../components/Layout/LeftSideBar';
 import Footer from '../components/Layout/Footer';
-import faker from 'faker';
 import Orders from '../components/Account/Orders';
 import Parameters from '../components/Account/Parameters';
 import SignOutButton from '../components/SignOut/SignOutButton';
-import {
-  withAuthorization,
-  withAuthentication,
-  AuthUserContext,
-} from '../session';
+import { withAuthorization, AuthUserContext } from '../session';
 import { Media } from '../media/media';
-import { useRouter } from 'next/router';
 
 class Compte extends Component {
   state = {
@@ -44,7 +37,7 @@ class Compte extends Component {
     const { animation, direction, visible, activeItem } = this.state;
     return (
       <div>
-        <Menu.Menu>
+        <AuthUserContext.Consumer>
           {(authUser) => (
             <div ref={this.contextRef}>
               <Sticky context={this.contextRef}>
@@ -90,7 +83,7 @@ class Compte extends Component {
                     >
                       <Media greaterThanOrEqual="md">
                         <Icon name="box" />
-                      </Media>{' '}
+                      </Media>
                       Mes Commandes
                     </Menu.Item>
                     <Menu.Item
@@ -98,10 +91,9 @@ class Compte extends Component {
                       active={activeItem === 'Mes Paramètres'}
                       onClick={this.handleItemClick}
                     >
-                      {' '}
                       <Media greaterThanOrEqual="md">
                         <Icon name="box" />
-                      </Media>{' '}
+                      </Media>
                       Mes Paramètres
                     </Menu.Item>
                     <Menu.Menu position="right">
@@ -133,7 +125,7 @@ class Compte extends Component {
               <Footer />
             </div>
           )}
-        </Menu.Menu>
+        </AuthUserContext.Consumer>
       </div>
     );
   }

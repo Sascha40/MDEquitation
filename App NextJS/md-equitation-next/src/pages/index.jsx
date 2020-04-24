@@ -13,11 +13,12 @@ import {
   Icon,
   Label,
   Card,
+  Rating
 } from 'semantic-ui-react';
 import Footer from '../components/Layout/Footer';
 import LeftSideBar from '../components/Layout/LeftSideBar';
 import HomeCaroussel from '../components/HomeCaroussel';
-import { ArticleCard } from '../components/ArticleCard';
+import { ArticleCard } from '../components/Articles/ArticleCard';
 import { Media, MediaContextProvider } from '../media/media';
 import { withFirebase } from '../firebase';
 import Link from 'next/link';
@@ -92,14 +93,79 @@ class Index extends Component {
                     {articles.map(
                       (article) =>
                         article.isOnTop && (
-                          <ArticleCard
-                            LinkName={article.articleid}
-                            image={article.url}
-                            name={article.Name}
-                            brand={article.Brand}
-                            price={`${article.Price}€`}
-                            crossedprice={`${article.CrossedPrice}€`}
-                          />
+                          <Link
+                            href="/article/[id]"
+                            as={`/article/${article.articleid}`}
+                          >
+                            <Card
+                              as="a"
+                              raised
+                              style={{
+                                maxWidth: '260px',
+                                boxShadow:
+                                  'rgb(238, 238, 238) 0px 0px 0px 1px, rgba(34, 36, 38, 0.12) 0px 2px 4px 0px, rgba(34, 36, 38, 0.15) 0px 2px 10px 0px',
+                              }}
+                            >
+                              <img
+                                src={article.url}
+                                style={{
+                                  objectFit: 'cover',
+                                  minHeight: '260px',
+                                  maxHeight: '260px',
+                                }}
+                              />
+
+                              <Card.Content>
+                                <Card.Header>{article.Name}</Card.Header>
+                                <Card.Meta>{article.Brand}</Card.Meta>
+                                <Card.Description>
+                                  <Label
+                                    size={'tiny'}
+                                    circular
+                                    content={'En stock'}
+                                  />
+                                  <h2
+                                    style={{
+                                      float: 'right',
+                                      color: 'rgb(143, 94, 58)',
+                                      margin: '0',
+                                    }}
+                                  >
+                                    {article.Price}
+                                  </h2>
+                                  <h5 style={{ float: 'right', margin: '0' }}>
+                                    <del>{article.CrossedPrice}</del>
+                                  </h5>
+                                </Card.Description>
+                                <div className={'mt-2'}>
+                                  <Rating
+                                    defaultRating={3}
+                                    maxRating={5}
+                                    disabled
+                                    style={{
+                                      float: 'left',
+                                      marginTop: '15px',
+                                      marginBottom: '5px',
+                                    }}
+                                  />
+                                  <Button
+                                    circular
+                                    animated="vertical"
+                                    floated={'right'}
+                                    style={{ minWidth: '75px' }}
+                                    className={'btn-shop'}
+                                  >
+                                    <Button.Content hidden>
+                                      Au panier{' '}
+                                    </Button.Content>
+                                    <Button.Content visible>
+                                      <Icon inverted name="add to cart" />
+                                    </Button.Content>
+                                  </Button>
+                                </div>
+                              </Card.Content>
+                            </Card>
+                          </Link>
                         ),
                     )}
                   </Card.Group>

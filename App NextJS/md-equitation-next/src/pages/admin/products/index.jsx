@@ -50,39 +50,6 @@ class Products extends Component {
     this.props.firebase.article(articleid).delete();
   }
 
-  handleClick = (e, titleProps) => {
-    const { index } = titleProps;
-    const { activeIndex } = this.state;
-    const newIndex = activeIndex === index ? -1 : index;
-
-    this.setState({ activeIndex: newIndex });
-  };
-
-  onSubmit = (event) => {
-    const activeIndex = this.state.activeIndex;
-
-    this.props.firebase
-      .article(this.state.articles[activeIndex].articleid)
-      .set({
-        Name: this.state.articles[activeIndex].Name,
-        Brand: this.state.articles[activeIndex].Brand,
-        Reference: this.state.articles[activeIndex].Reference,
-        Price: this.state.articles[activeIndex].Price,
-        CrossedPrice: this.state.articles[activeIndex].CrossedPrice,
-        Stock: this.state.articles[activeIndex].Stock,
-        Weight: this.state.articles[activeIndex].Weight,
-        Height: this.state.articles[activeIndex].Height,
-        Width: this.state.articles[activeIndex].Width,
-        Lenght: this.state.articles[activeIndex].Lenght,
-        Description: this.state.articles[activeIndex].Description,
-        isOnTop: this.state.articles[activeIndex].isOnTop,
-        addDate: Date.now(),
-      })
-      .catch((error) => {
-        this.setState({ error: error.message });
-      });
-    event.preventDefault();
-  };
 
   render() {
     const {
@@ -135,25 +102,28 @@ class Products extends Component {
           <Divider hidden />
           <Divider hidden />
 
-          <Table basic="very">
+          <Table stackable basic="very">
             <Table.Header>
-              <Table.HeaderCell>Articles</Table.HeaderCell>
-              <Table.HeaderCell>Marque</Table.HeaderCell>
-              <Table.HeaderCell>Catégorie</Table.HeaderCell>
-              <Table.HeaderCell>Prix</Table.HeaderCell>
-              <Table.HeaderCell>Prix Barré</Table.HeaderCell>
-              <Table.HeaderCell>Stock</Table.HeaderCell>
-              <Table.HeaderCell>Modifier / Supprimer</Table.HeaderCell>
+              <Table.Row>
+                <Table.HeaderCell>Articles</Table.HeaderCell>
+                <Table.HeaderCell>Marque</Table.HeaderCell>
+                <Table.HeaderCell>Catégorie</Table.HeaderCell>
+                <Table.HeaderCell>Prix</Table.HeaderCell>
+                <Table.HeaderCell>Prix Barré</Table.HeaderCell>
+                <Table.HeaderCell>Stock</Table.HeaderCell>
+                <Table.HeaderCell>Modifier / Supprimer</Table.HeaderCell>
+              </Table.Row>
             </Table.Header>
+
             <Table.Body>
               {articles.map((article, index) => (
-                <Table.Row>
+                <Table.Row key={index}>
                   <Table.Cell collapsing>{article.Name}</Table.Cell>
                   <Table.Cell collapsing>{article.Brand}</Table.Cell>
                   <Table.Cell collapsing>Catégorie</Table.Cell>
-                  <Table.Cell collapsing>{article.Price}</Table.Cell>
-                  <Table.Cell collapsing>{article.CrossedPrice}</Table.Cell>
-                  <Table.Cell collapsing>{article.Stock}</Table.Cell>
+                  <Table.Cell collapsing>{article.Price} €</Table.Cell>
+                  <Table.Cell collapsing><del>{article.CrossedPrice}</del> €</Table.Cell>
+                  <Table.Cell collapsing>{article.Stock} pcs</Table.Cell>
                   <Table.Cell collapsing textAlign="center">
                     <Link
                       href="/admin/products/update/[id]"

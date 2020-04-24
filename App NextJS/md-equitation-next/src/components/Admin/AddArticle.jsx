@@ -95,22 +95,7 @@ class AddArticle extends Component {
   };
 
   onSubmit(event) {
-    const {
-      image1,
-      name,
-      brand,
-      reference,
-      price,
-      crossedprice,
-      stock,
-      weight,
-      height,
-      width,
-      lenght,
-      description,
-      url,
-      isOnTop,
-    } = this.state;
+    const { image1 } = this.state;
 
     const uploadTask = this.props.firebase.storage
       .ref(`images/${image1.name}`)
@@ -181,7 +166,7 @@ class AddArticle extends Component {
               <Form.Input
                 required
                 fluid
-                placeholder="Prix TTC (nombres)"
+                placeholder="Prix TTC ( en chiffres )"
                 value={this.state.price}
                 name="price"
                 onChange={this.onChange}
@@ -189,7 +174,7 @@ class AddArticle extends Component {
               <Form.Input
                 required
                 fluid
-                placeholder="Prix Barré TTC (nombres)"
+                placeholder="Prix Barré TTC ( en chiffres )"
                 value={this.state.crossedprice}
                 name="crossedprice"
                 onChange={this.onChange}
@@ -197,7 +182,7 @@ class AddArticle extends Component {
               <Form.Input
                 required
                 fluid
-                placeholder="Stock (nombres)"
+                placeholder="Stock ( en chiffres )"
                 value={this.state.stock}
                 name="stock"
                 onChange={this.onChange}
